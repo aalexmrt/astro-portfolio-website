@@ -5,12 +5,8 @@ const Header = () => {
   const [isDark, setIsDark] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Mark as mounted after hydration
-    setIsMounted(true);
-
     // Sync with localStorage and ensure dark class is on HTML
     const savedTheme = localStorage.getItem("theme");
     const shouldBeDark = savedTheme !== "light";
@@ -87,7 +83,7 @@ const Header = () => {
           </button>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center gap-6 absolute left-1/2 transform -tranzinc-x-1/2">
+          <div className="hidden md:flex items-center gap-6 absolute left-1/2 transform -translate-x-1/2">
             {navLinks.map((link) => (
               <a
                 key={link.id}
