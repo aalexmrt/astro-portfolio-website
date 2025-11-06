@@ -58,13 +58,13 @@ const ContactForm = () => {
 
             <div className="space-y-4">
               <a
-                href="mailto:alex@example.com"
+                href="mailto:alexmartinez.mm98@gmail.com"
                 className="flex items-center space-x-4 text-base text-zinc-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
               >
                 <div className="p-3 bg-zinc-100 dark:bg-zinc-700 rounded-lg">
                   <Mail className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
                 </div>
-                <span>alex@example.com</span>
+                <span>alexmartinez.mm98@gmail.com</span>
               </a>
 
               <div className="flex items-center space-x-4 text-base text-zinc-900 dark:text-white">
@@ -77,7 +77,7 @@ const ContactForm = () => {
 
             <div className="flex space-x-4 pt-4">
               <a
-                href="https://github.com"
+                href="https://github.com/aalexmrt"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-zinc-100 dark:bg-zinc-700 rounded-lg hover:bg-cyan-100 dark:hover:bg-cyan-900 transition-colors"
@@ -85,7 +85,7 @@ const ContactForm = () => {
                 <Github className="w-6 h-6 text-zinc-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/alexmartinez598/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-zinc-100 dark:bg-zinc-700 rounded-lg hover:bg-cyan-100 dark:hover:bg-cyan-900 transition-colors"
