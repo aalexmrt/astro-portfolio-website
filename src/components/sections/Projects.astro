@@ -1,0 +1,114 @@
+---
+import { ExternalLink, Github } from 'lucide-react';
+
+interface Project {
+  title: string;
+  description: string;
+  image?: string;
+  technologies: string[];
+  link?: string;
+  github?: string;
+  highlight?: boolean;
+}
+
+const projects: Project[] = [
+  {
+    title: 'AI-Powered Analytics Platform',
+    description: 'Built a scalable analytics platform with real-time AI recommendations, processing millions of data points daily. Integrated machine learning models for predictive analytics.',
+    technologies: ['Python', 'TensorFlow', 'React', 'AWS', 'Kubernetes', 'PostgreSQL'],
+    github: 'https://github.com',
+    highlight: true
+  },
+  {
+    title: 'Cloud-Native Microservices Architecture',
+    description: 'Designed and implemented a distributed microservices system handling high traffic with auto-scaling capabilities. Reduced infrastructure costs by 40% through optimization.',
+    technologies: ['Node.js', 'Docker', 'Kubernetes', 'GCP', 'Redis', 'MongoDB'],
+    github: 'https://github.com',
+    link: 'https://example.com'
+  },
+  {
+    title: 'Real-Time Data Pipeline',
+    description: 'Developed a high-performance data pipeline processing 100GB+ daily with real-time dashboards and alerting systems. Achieved 99.9% uptime.',
+    technologies: ['Python', 'Apache Kafka', 'React', 'GCP', 'BigQuery', 'Grafana'],
+    github: 'https://github.com'
+  },
+  {
+    title: 'Full-Stack E-Commerce Platform',
+    description: 'Built a modern e-commerce platform with advanced search, payment integration, and admin dashboard. Achieved 90+ Lighthouse performance scores.',
+    technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS', 'TypeScript'],
+    github: 'https://github.com',
+    link: 'https://example.com'
+  },
+  {
+    title: 'Distributed AI Workload Manager',
+    description: 'Created a system for managing and deploying distributed AI workloads across multiple cloud providers with automatic failover and load balancing.',
+    technologies: ['Python', 'PyTorch', 'Kubernetes', 'AWS', 'GCP', 'Terraform'],
+    github: 'https://github.com'
+  },
+  {
+    title: 'Serverless API Gateway',
+    description: 'Architected a serverless API gateway with rate limiting, caching, and authentication. Reduced API response times by 60%.',
+    technologies: ['TypeScript', 'AWS Lambda', 'API Gateway', 'DynamoDB', 'CloudFront'],
+    github: 'https://github.com',
+    link: 'https://example.com'
+  }
+];
+---
+
+<section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+  <div class="w-full max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 text-zinc-900 dark:text-white">
+        Featured Projects
+      </h2>
+      <div class="w-16 h-0.5 bg-cyan-600 dark:bg-cyan-500 mx-auto mb-4"></div>
+      <p class="text-base text-zinc-900 dark:text-white max-w-2xl mx-auto">
+        A selection of projects showcasing my expertise in full-stack development, cloud architecture, and AI integration
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project) => (
+        <div class="border border-zinc-200 dark:border-zinc-700 rounded-lg overflow-hidden bg-white dark:bg-zinc-800 hover:border-cyan-600 dark:hover:border-cyan-400 transition-colors">
+          <div class="h-40 bg-zinc-100 dark:bg-zinc-700"></div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="text-lg font-bold text-zinc-900 dark:text-white">{project.title}</h3>
+              {project.highlight && (
+                <span class="px-2 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-600 dark:text-cyan-400 text-xs font-medium rounded">Featured</span>
+              )}
+            </div>
+            <p class="text-sm text-zinc-900 dark:text-white mb-4 leading-relaxed">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map((tech) => (
+                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-700 text-zinc-900 dark:text-white rounded text-xs">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex gap-4">
+              {project.github && (
+                <a href={project.github} target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center gap-2 text-sm text-zinc-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                  <Github class="w-4 h-4" />
+                  <span>Code</span>
+                </a>
+              )}
+              {project.link && (
+                <a href={project.link} target="_blank" rel="noopener noreferrer"
+                   class="flex items-center gap-2 text-sm text-zinc-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                  <ExternalLink class="w-4 h-4" />
+                  <span>Live Demo</span>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
