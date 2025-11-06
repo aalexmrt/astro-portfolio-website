@@ -79,19 +79,8 @@ const projects = [
     github: 'https://github.com',
     link: 'https://example.com'
   },
-  {
-    title: 'Distributed AI Workload Manager',
-    description: 'Created a system for managing and deploying distributed AI workloads across multiple cloud providers with automatic failover and load balancing.',
-    technologies: ['Python', 'PyTorch', 'Kubernetes', 'AWS', 'GCP', 'Terraform'],
-    github: 'https://github.com'
-  },
-  {
-    title: 'Serverless API Gateway',
-    description: 'Architected a serverless API gateway with rate limiting, caching, and authentication. Reduced API response times by 60%.',
-    technologies: ['TypeScript', 'AWS Lambda', 'API Gateway', 'DynamoDB', 'CloudFront'],
-    github: 'https://github.com',
-    link: 'https://example.com'
-  }
+ 
+  
 ];
 
 const sayProjectDetails = {
@@ -406,6 +395,71 @@ const openqDrmProjectDetails = {
       title: 'Stream-based reevaluation system',
       metrics: 'Improved throughput, better message ordering and delivery guarantees',
       description: 'Refactored reevaluation system to use Kafka streams for better scalability. Implemented stream processing for reevaluation system. Added reevaluateUuid for batch tracking. Refactored batch reevaluation logic. Improved error handling and retry mechanisms. Improved throughput for reevaluations, better message ordering and delivery guarantees, reduced state management complexity.'
+    },
+    {
+      title: 'Commit window optimization for dependency checks',
+      metrics: '95% reduction: 10,000 checks → ~500 checks for large repositories',
+      description: 'Reduced dependency parsing frequency using adaptive commit window sizing. Only checks dependencies every 5% of commits (dynamic window), dramatically reducing I/O operations. For a repository with 10,000 commits, reduced dependency checks from 10,000 to ~500 (95% reduction). Implemented adaptive commit window algorithm (GetCommitWindow) that scales with repository size.'
+    },
+    {
+      title: 'Dependency file caching',
+      metrics: '~95% reduction in file I/O operations for large repositories',
+      description: 'Cache dependency files once per repository instead of scanning per commit. Eliminated redundant file system operations - single cache load vs. N times per repository. Reduced file I/O operations by ~95% for large repositories with many commits. Pre-cache all dependency files before processing commit list.'
+    },
+    {
+      title: 'Map-based dependency lookups (O(1) vs O(n))',
+      metrics: 'O(n) → O(1) constant-time lookups for dependency matching',
+      description: 'Replaced linear dependency searches with hash map lookups. Changed from O(n) linear search to O(1) constant-time lookups. Dependency matching performance improved from O(n) to O(1) - significant speedup for repos with hundreds of dependencies. Build dependency map keyed by dependency_name:dependency_file before processing.'
+    },
+    {
+      title: 'Context check optimization',
+      metrics: '99% reduction: check frequency reduced from every commit to every 100 commits',
+      description: 'Reduced context cancellation check overhead from every commit to every 100 commits. Cut context check frequency by 99% (100:1 ratio). Reduced CPU overhead for timeout handling in long-running commit processing loops. Check context every 100 commits instead of every iteration.'
+    },
+    {
+      title: 'Parallel Kafka consumer architecture',
+      metrics: 'Linear throughput scaling with configurable consumer counts',
+      description: 'Implemented configurable multi-consumer architecture for repo sync, user sync, and dependency sync. Configurable consumer counts per service (RepoSyncConsumerCount, UserSyncConsumerCount, UserDepsSyncConsumerCount). Linear throughput scaling - can process N times more messages per second with N consumers. Spawn multiple Kafka consumers per service, each processing messages independently.'
+    },
+    {
+      title: 'Bulk database operations with PostgreSQL arrays',
+      metrics: '~1000x reduction in database round-trips for large batches',
+      description: 'Replaced individual INSERT statements with bulk array-based inserts. Single bulk insert handles thousands of rows vs. thousands of individual queries. Reduced database round-trips by 1000x for large batches (e.g., 1000 commits = 1 query vs 1000 queries). Implemented BulkInsertCommits using unnest($1::varchar[]) for batch insertion, BatchInsertRepoDependencies for dependency batch processing, and BulkInsertUserDependencies for user dependency tracking.'
+    },
+    {
+      title: 'Cursor-based pagination for large datasets',
+      metrics: 'Memory usage reduced from O(n) to O(1000) - enables unlimited dependency processing',
+      description: 'Implemented cursor pagination for dependency fetching to avoid memory issues. Process 1000 records per batch instead of loading entire dataset into memory. Reduced memory usage from O(n) to O(1000) - enables processing repositories with unlimited dependency counts. Cursor-based pagination with configurable batch size (1000 records per page).'
+    },
+    {
+      title: 'MongoDB to PostgreSQL migration with parallel processing',
+      metrics: '~20x faster migration throughput with 20-thread parallel processing',
+      description: 'Built 20-thread parallel migration system for MongoDB to PostgreSQL data transfer. Process 1000 documents per batch across 20 parallel goroutines. ~20x faster migration throughput compared to sequential processing. Split batches into chunks, process each chunk in parallel goroutine with sync.WaitGroup.'
+    },
+    {
+      title: 'Kafka consumer timeout configuration',
+      metrics: '24x increase: extended poll interval from 5 minutes to 2 hours (7200000ms)',
+      description: 'Extended Kafka poll interval to 2 hours (7200000ms) to accommodate long-running repository processing. Increased from default (~5 minutes) to 120 minutes - 24x increase. Eliminated consumer group rebalancing issues during long repo syncs (15-20 minute operations). Configurable max.poll.interval.ms per consumer group.'
+    },
+    {
+      title: 'Per-message timeout handling',
+      metrics: '17-minute timeout per message with graceful failure handling',
+      description: 'Implemented per-message timeout context (17 minutes) with graceful failure handling. Individual messages timeout independently vs. entire consumer blocking. Improved system reliability - one slow repo doesn\'t block other message processing. Context-based timeout per message with status tracking (timeout/failed status).'
+    },
+    {
+      title: 'Retry logic with exponential backoff',
+      metrics: 'Up to 5 retries with backoff: 100ms → 200ms → 400ms → 800ms → 2s',
+      description: 'Implemented retry mechanism with exponential backoff for paginated queries. Up to 5 retries with backoff: 100ms → 200ms → 400ms → 800ms → 2s. Improved resilience to transient database errors - reduced query failures by handling temporary network issues. Exponential backoff with max retry limit for GetPaginatedUserLoginsAndIds.'
+    },
+    {
+      title: 'SQL query generation with sqlc',
+      metrics: 'Type-safe queries across 19+ query files with generated Go types',
+      description: 'Migrated from raw SQL strings to type-safe sqlc-generated queries. All queries defined in sql/queries/*.sql with generated Go types. Improved type safety, reduced SQL injection risk, easier maintenance - 19 query files with generated code. sqlc schema-first approach with migrations in sql/schema/ (28 migration files).'
+    },
+    {
+      title: 'Batch size optimization for dependency fetching',
+      metrics: '1000-record batch size with cursor pagination for 10,000+ dependencies',
+      description: 'Optimized dependency fetching with 1000-record batch size. Fetch dependencies in 1000-record chunks with cursor pagination. Reduced memory footprint and improved query performance for repos with 10,000+ dependencies. Paginated GetRepoDependenciesByURL with cursor-based pagination.'
     }
   ],
   frontendAchievements: [
@@ -425,20 +479,40 @@ const openqDrmProjectDetails = {
       title: 'Code quality improvements',
       metrics: 'Reduced complexity, removed ~95 lines of legacy code, standardized constants',
       description: 'Improved codebase maintainability and performance. Reduced complexity through batch consolidation. Removed legacy progress calculation code (~95 lines removed). Introduced performance monitoring and logging. Standardized constants for batch sizes.'
+    },
+    {
+      title: 'Multi-service architecture (3 sync services)',
+      metrics: 'Independent scaling and deployment for reposync, usersync, userdepsync',
+      description: 'Separated concerns into dedicated microservices: reposync, usersync, userdepsync. Three independent services with separate Kafka topics and consumer groups. Independent scaling and deployment - can scale each service based on workload. Separate Go services with shared database utilities.'
+    },
+    {
+      title: 'Performance monitoring & breakdown logging',
+      metrics: 'Comprehensive timing breakdown for each processing stage',
+      description: 'Comprehensive performance timing for each processing stage. Detailed timing breakdown: commit list creation, dependency fetching, object processing, DB insertion. Enabled performance debugging and optimization - can identify bottlenecks per repository. Performance logging with percentage breakdowns for each stage.'
+    },
+    {
+      title: 'MongoDB to PostgreSQL bulk migration',
+      metrics: 'Cursor-based migration processing 1000 documents per batch with 20 parallel threads',
+      description: 'Built cursor-based migration system processing MongoDB documents in batches. Process 1000 documents per batch with 20 parallel threads. Handled large-scale data migration (millions of documents) efficiently. MongoDB cursor pagination + PostgreSQL bulk inserts with parallel processing.'
     }
   ],
   collaborationAchievements: [],
   technologies: [
     'TypeScript',
     'Node.js',
+    'Go',
     'Kafka',
     'MongoDB',
+    'PostgreSQL',
     'React',
     'Docker',
     'Microservices',
     'React Query',
     'Docker Compose',
-    'Kafka Streams'
+    'Kafka Streams',
+    'sqlc',
+    'Goroutines',
+    'sync.WaitGroup'
   ]
 };
 
