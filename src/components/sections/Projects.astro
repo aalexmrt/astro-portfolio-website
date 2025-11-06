@@ -1,23 +1,63 @@
 ---
-import { ExternalLink, Github } from 'lucide-react';
+import Projects from './Projects';
 
-interface Project {
-  title: string;
-  description: string;
-  image?: string;
-  technologies: string[];
-  link?: string;
-  github?: string;
-  highlight?: boolean;
-}
-
-const projects: Project[] = [
+const projects = [
   {
-    title: 'AI-Powered Analytics Platform',
-    description: 'Built a scalable analytics platform with real-time AI recommendations, processing millions of data points daily. Integrated machine learning models for predictive analytics.',
-    technologies: ['Python', 'TensorFlow', 'React', 'AWS', 'Kubernetes', 'PostgreSQL'],
-    github: 'https://github.com',
-    highlight: true
+    title: 'Saya',
+    description: 'AI-powered developer recruitment platform that uses natural language queries to search a massive PostgreSQL database of GitHub developer profiles, code, and contributions.',
+    technologies: [
+      'React 19',
+      'TypeScript',
+      'Express.js',
+      'PostgreSQL',
+      'WebSocket',
+      'Google Gemini',
+      'Docker',
+      'Turbo',
+      'Clerk',
+      'Radix UI',
+      'Tailwind CSS'
+    ],
+    highlight: true,
+    hasDetails: true,
+    link: 'https://saya.so/'
+  },
+  {
+    title: 'Geist AI',
+    description: 'AI assistant platform with streaming inference, multi-agent orchestration, and on-device memory. Achieved 15x faster local development and sub-5s first-token latency with GPU acceleration.',
+    technologies: [
+      'React Native',
+      'TypeScript',
+      'FastAPI',
+      'Python',
+      'llama.cpp',
+      'PostgreSQL',
+      'SQLite',
+      'Docker',
+      'Whisper',
+      'RevenueCat',
+      'Expo'
+    ],
+    highlight: true,
+    hasDetails: true,
+    link: 'https://geist.im/'
+  },
+  {
+    title: 'OpenQ DRM',
+    description: 'Distributed contact evaluation and analytics system built on Kafka, MongoDB, and microservices. Optimized batch processing, Kafka messaging, and query performance for large-scale operations.',
+    technologies: [
+      'TypeScript',
+      'Node.js',
+      'Kafka',
+      'MongoDB',
+      'React',
+      'Docker',
+      'Microservices',
+      'React Query'
+    ],
+    highlight: true,
+    hasDetails: true,
+    link: 'https://drm.openq.dev/'
   },
   {
     title: 'Cloud-Native Microservices Architecture',
@@ -53,62 +93,360 @@ const projects: Project[] = [
     link: 'https://example.com'
   }
 ];
+
+const sayProjectDetails = {
+  title: 'Saya',
+  purpose: 'AI-powered developer recruitment platform that uses natural language queries to search a massive PostgreSQL database of GitHub developer profiles, code, and contributions.',
+  overview: 'Customer-facing product that enables companies to find developers by analyzing actual code and GitHub activity rather than just resumes. Integrates with OpenQ\'s GitGuru database (one of the largest developer databases).',
+  link: 'https://saya.so/',
+  backendAchievements: [
+    {
+      title: 'Query performance optimization',
+      metrics: 'Query execution time, timeout error rate reduction',
+      description: 'Eliminated database timeouts by optimizing SQL query patterns. Implemented query optimization strategies in AI system prompts: refactored queries to filter through smaller dependency tables first (dependencies → users_to_dependencies → github_users) instead of querying github_users directly. Added aggressive LIMIT clauses (100-200 for filters, 250 for final results) to prevent large table scans. Replaced expensive ORDER BY RANDOM() with ORDER BY created_at DESC for faster queries. Established query patterns that prevent timeouts on a database with millions of GitHub users.'
+    },
+    {
+      title: 'Real-time WebSocket architecture',
+      metrics: 'WebSocket connection stability, message latency',
+      description: 'Built real-time bidirectional communication system for streaming AI responses. Implemented WebSocket server with Clerk authentication token validation on connection, real-time streaming of SQL query generation, database results, and AI responses, error handling and reconnection logic, and credit system integration with per-message authorization.'
+    },
+    {
+      title: 'Express.js backend with TypeScript',
+      metrics: 'API response times, error rates, type coverage',
+      description: 'Built production-ready REST API with type safety. Developed Express.js backend with full TypeScript coverage, implemented REST endpoints for user management, list retrieval, CSV downloads, email decryption, integrated Clerk webhooks for user lifecycle management, and multi-stage Docker build for optimized production images.'
+    }
+  ],
+  aiAchievements: [
+    {
+      title: 'LLM-powered SQL query generation',
+      metrics: 'Query accuracy rate, successful execution rate, query optimization effectiveness',
+      description: 'Built AI agent that converts natural language to optimized PostgreSQL queries. Integrated Google Gemini 2.5 Flash with function calling capabilities, designed system prompts with database schema context and performance-first query patterns, implemented dynamic schema fetching from GitGuru API to keep AI context up-to-date, and created technology mapping system (TypeScript → dependency_name ILIKE \'%typescript%\' AND dependency_file ILIKE \'%package.json%\').'
+    },
+    {
+      title: 'Dual-agent AI architecture',
+      metrics: 'Agent coordination, query plan quality, system reliability',
+      description: 'Implemented multi-agent system for query planning and monitoring. Built Actor agent for executing user queries and generating SQL, built Monitor agent for query planning and post-execution analysis, and designed agent communication patterns for iterative query refinement.'
+    },
+    {
+      title: 'Database integration with GitGuru',
+      metrics: 'Query success rate, data retrieval performance, integration stability',
+      description: 'Integrated with OpenQ\'s GitGuru PostgreSQL database (one of the largest GitHub developer databases). Built API client for GitGuru wildcard SQL endpoint, implemented error handling for database query failures, created data transformation layer to strip PII (emails) before client transmission, and built query result persistence system for saving generated developer lists.'
+    }
+  ],
+  frontendAchievements: [
+    {
+      title: 'React 19 + TypeScript frontend',
+      metrics: 'Bundle size, load time, type coverage, user experience metrics',
+      description: 'Built modern, type-safe frontend with real-time updates. Developed React 19 application with Vite for fast development and optimized builds, implemented real-time WebSocket integration using react-use-websocket, built chat interface with streaming responses, SQL query display, and data table visualization, created reusable UI components using Radix UI and Tailwind CSS, and implemented Clerk authentication with protected routes.'
+    },
+    {
+      title: 'Real-time data visualization',
+      metrics: 'Rendering performance, user interaction metrics',
+      description: 'Built interactive data tables for displaying developer search results. Created dynamic data table component that renders structured developer data, implemented query card display showing user prompts and generated SQL, built error card system for handling database and API errors gracefully, and added CSV export functionality with credit system integration.'
+    }
+  ],
+  devopsAchievements: [
+    {
+      title: 'Docker containerization',
+      metrics: 'Image size reduction, build time, deployment reliability',
+      description: 'Containerized full-stack application with multi-stage builds. Created optimized Dockerfiles for frontend and backend with multi-stage builds, implemented health checks for containerized services, set up docker-compose for local development and testing, and configured non-root user execution for security.'
+    },
+    {
+      title: 'Monorepo architecture with Turbo',
+      metrics: 'Build time reduction, dependency management efficiency',
+      description: 'Organized codebase as Turbo monorepo for optimized builds. Structured project as pnpm workspace with Turbo for task orchestration, configured shared TypeScript configs and build pipelines, and set up environment variable management across services.'
+    }
+  ],
+  collaborationAchievements: [
+    {
+      title: 'Credit system & user permissions',
+      metrics: 'Credit usage tracking, feature adoption rates',
+      description: 'Built flexible credit system for managing user access and feature gating. Implemented PermissionsClient class for managing search, email decrypt, and CSV download credits, integrated credit checking and burning into WebSocket message handlers, and built Clerk webhook handler for initializing user credits on signup (100 search, 50 email decrypt, 10 CSV downloads).'
+    },
+    {
+      title: 'Integration with OpenQ ecosystem',
+      metrics: 'API integration stability, data consistency',
+      description: 'Integrated with OpenQ\'s GitGuru database and infrastructure. Built API integration layer for GitGuru PostgreSQL database, implemented schema fetching for dynamic database context, and created data persistence layer for saving generated developer lists to GitGuru.'
+    }
+  ],
+  technologies: [
+    'React 19',
+    'TypeScript',
+    'Express.js',
+    'PostgreSQL',
+    'WebSocket',
+    'Google Gemini 2.5 Flash',
+    'Docker',
+    'Turbo',
+    'Clerk',
+    'Radix UI',
+    'Tailwind CSS',
+    'Vite',
+    'pnpm'
+  ]
+};
+
+const geistProjectDetails = {
+  title: 'Geist AI',
+  purpose: 'AI assistant platform with streaming inference, multi-agent orchestration, and on-device memory for measurable engineering outcomes.',
+  overview: 'Built a production-ready AI platform featuring FastAPI + SSE streaming, llama.cpp optimizations, nested orchestrator architecture, RevenueCat integration, and Whisper STT. Achieved 15x faster local development (1-2s vs 20+ seconds), sub-5s first-token latency, >10 tokens/sec throughput, and 16K context window with GPU acceleration.',
+  link: 'https://geist.im/',
+  backendAchievements: [
+    {
+      title: 'FastAPI + SSE + llama.cpp optimizations',
+      metrics: '15x speedup: 1-2s vs 20+ seconds response time',
+      description: 'Reduced local dev response time from 20+ seconds → 1-2 seconds (15x speedup) by building start-local-dev.sh script bypassing Docker overhead, enabling native llama.cpp with Metal acceleration (32 GPU layers). Reduced first-token latency to <5 seconds with TokenBatcher implementing 16ms flush interval (60fps) and batch size 3-10 tokens for optimized UI rendering. Achieved >10 tokens/sec throughput by configuring llama.cpp with batch-size 512, ubatch-size 256, parallel 2, and --cont-batching flag for continuous batching.'
+    },
+    {
+      title: 'Context window expansion',
+      metrics: '4x increase: 4096 → 16384 tokens',
+      description: 'Increased context window from 4096 → 16384 tokens (4x increase) by expanding context size for stable tool calling with parallel requests, required for nested orchestrator agent coordination. Configured CONTEXT_SIZE=16384 in start-local-dev.sh vs Docker defaults (4096).'
+    },
+    {
+      title: 'GPU utilization optimization',
+      metrics: '3-5x faster token generation with Metal/RTX acceleration',
+      description: 'Improved GPU utilization with 3-5x faster token generation by configuring GPU layers (32 for Apple Silicon, 8 for RTX 5070) and optimizing batch processing for maximum GPU utilization. Documented GPU_SETUP_README.md with Metal/RTX acceleration details.'
+    },
+    {
+      title: 'Response latency improvements',
+      metrics: 'Sub-100ms event propagation from backend to frontend',
+      description: 'Achieved sub-100ms event propagation from backend to frontend by implementing real-time Server-Sent Events with EventSourceResponse, asyncio.Queue for event buffering, and proper event sequencing. Built SSE event streaming with asyncio.Queue-based architecture with event timestamps logged.'
+    },
+    {
+      title: 'Whisper STT implementation',
+      metrics: 'Sub-10s transcription latency for typical audio clips',
+      description: 'Built offline-capable transcription with local whisper.cpp integration. Created FastAPI Whisper STT service with whisper.cpp binary, configured 60-second timeout, optimized whisper.cpp command with --no-timestamps and --print-progress false flags. Implemented multilingual transcription support with auto-detect and forced language (WAV format support from expo-audio, max 25MB file size validation).'
+    }
+  ],
+  aiAchievements: [
+    {
+      title: 'Nested orchestrator with arbitrary depth',
+      metrics: 'Recursive event forwarding with path tracking (e.g., "main.research.web_search")',
+      description: 'Built nested orchestrator with arbitrary depth support and event path tracking. Implemented NestedOrchestrator class extending Orchestrator with _discover_agent_hierarchy() and _setup_recursive_forwarding_for_agent() methods for nested agent coordination.'
+    },
+    {
+      title: 'Real-time sub-agent visibility',
+      metrics: 'Event-driven communication with EventEmitter pattern',
+      description: 'Achieved real-time sub-agent visibility with event-driven communication. Created event-driven architecture with EventEmitter base class, event forwarding from sub-agents to orchestrator, and SSE streaming of events to frontend. Emits sub_agent_event, tool_call_event, orchestrator_start, orchestrator_complete events.'
+    },
+    {
+      title: 'Automatic context injection with relevance scoring',
+      metrics: 'Memory context extracted from system messages with cosine similarity search',
+      description: 'Implemented automatic context injection with relevance scoring from conversation memory. Integrated PostgreSQL + embeddings backend, implemented memoryStorage.ts with cosine similarity search, and automatic context injection into orchestrator system prompts. Memory context extracted from system messages, injected into orchestrator system prompts, logged with character counts.'
+    },
+    {
+      title: 'Optimized reasoning verbosity',
+      metrics: 'Reduced reasoning effort for tool calls while maintaining accuracy',
+      description: 'Achieved faster agent responses with reduced reasoning verbosity for tool calls. Optimized tool_reasoning = "low" when available_tools present, reducing LLM reasoning verbosity while maintaining accuracy. Reasoning effort set to "low" for tool calls vs "medium" for final responses in orchestrator.py.'
+    },
+    {
+      title: 'On-device conversation memory',
+      metrics: '100% on-device SQLite storage with binary embedding storage',
+      description: 'Built 100% on-device conversation memory with SQLite storage. Created local SQLite storage with MemoryStorageService class, implemented indexed tables for fast queries, and binary embedding storage for space efficiency. On-device SQLite databases (geist_v2_chats.db, geist_memories.db, vectors.db) documented in MEMORY_SYSTEM_LOCAL.md.'
+    },
+    {
+      title: 'Automated memory extraction and semantic search',
+      metrics: 'Memory extraction API with structured JSON output and cosine similarity',
+      description: 'Implemented automatic memory extraction and semantic search. Created automated memory extraction pipeline using LLM with structured JSON output, cosine similarity search for relevance scoring, and automatic context retrieval. Memory extraction API endpoint (/api/memory) extracts JSON facts from conversations, stores with embeddings.'
+    }
+  ],
+  frontendAchievements: [
+    {
+      title: 'Optimized UI rendering with token batching',
+      metrics: '60fps rendering with 16ms flush interval, 3-10 tokens per batch',
+      description: 'Achieved smooth 60fps UI rendering during token streaming by building TokenBatcher class with configurable batchSize (3-10 tokens) and flushInterval (16-100ms) to reduce React Native render frequency. TokenBatcher flushInterval set to 16ms (60fps = 1000ms / 60 ≈ 16ms).'
+    },
+    {
+      title: 'Real-time token streaming with error handling',
+      metrics: 'SSE client with error callbacks and reconnection logic',
+      description: 'Built real-time token streaming with error handling and reconnection. Integrated react-native-sse for SSE client, implemented error handling in ChatAPI, added reconnection logic for dropped connections. ChatAPI.streamMessage() with error callbacks and reconnection logic.'
+    },
+    {
+      title: 'Automated performance validation',
+      metrics: 'Test suite validates <5s first token, >10 tokens/sec throughput',
+      description: 'Created continuous performance validation with automated test suite. Built ChatPerformanceTester class with automated test cases, implemented metrics tracking (first token time, throughput, response time), added performance analysis with threshold validation. Test suite in chatPerformance.test.ts validates firstTokenTime < 5000ms, tokens/sec > 10.'
+    },
+    {
+      title: 'Efficient native performance',
+      metrics: 'Native modules for audio, storage, and payments',
+      description: 'Achieved efficient native performance for critical features. Configured Expo with native modules, optimized bundle with .babelrc and metro.config.js, ensured native performance for audio, storage, and payments. Package.json includes native modules: expo-audio (audio recording), expo-sqlite (local storage), react-native-purchases (RevenueCat).'
+    },
+    {
+      title: 'TestFlight stability and deployment',
+      metrics: 'Automated TestFlight builds for 100 internal testers',
+      description: 'Achieved TestFlight-ready builds with automated deployment. Configured eas.json with production profile, set up EAS Build for iOS, implemented automated submission to TestFlight, documented release process. RELEASE_GUIDE.md documents EAS Build pipeline, TestFlight internal testing with 100 testers, automated submission process.'
+    }
+  ],
+  devopsAchievements: [
+    {
+      title: 'Microservices architecture deployment',
+      metrics: '5 microservices with modular, scalable architecture',
+      description: 'Deployed 5 microservices with modular, scalable architecture. Built FastAPI router service, configured llama.cpp inference service, created embeddings service, set up memory extraction proxy, implemented Whisper STT service. Docker-compose.yml defines 5 services: router, inference, embeddings, memory (via memory extraction URL), whisper-stt.'
+    },
+    {
+      title: '15x faster local development',
+      metrics: '1-2s vs 20+ seconds response time',
+      description: 'Achieved 15x faster local development vs Docker (1-2s vs 20+ seconds) by creating start-local-dev.sh script with native llama.cpp execution, Metal GPU acceleration (32 layers), bypassing Docker overhead. README.md documents "~15x faster than Docker (1-2 seconds vs 20+ seconds)" for Apple Silicon.'
+    },
+    {
+      title: 'Production-ready deployment with GPU support',
+      metrics: 'Health checks, GPU device reservations, restart policies',
+      description: 'Built production-ready deployment with GPU support and health checks. Configured Docker Compose with GPU device reservations, health check endpoints for all services, service dependencies, and restart policies. Docker-compose.yml includes healthcheck configs (interval: 30s, timeout: 10s, retries: 5), GPU device reservations for NVIDIA.'
+    },
+    {
+      title: 'GPU resource optimization',
+      metrics: '8 GPU layers for NVIDIA RTX 5070 (8GB VRAM)',
+      description: 'Optimized GPU resources for NVIDIA RTX 5070 (8GB VRAM) by configuring GPU layers based on available VRAM (8 layers for 8GB), setting up GPU device reservations in Docker Compose, documenting GPU optimization settings. Docker-compose.yml GPU config uses 8 GPU layers for RTX 5070, GPU_SETUP_README.md documents time-slicing capability.'
+    },
+    {
+      title: 'Service reliability and monitoring',
+      metrics: 'Health check endpoints, timeout handling, retry logic',
+      description: 'Implemented reliable service discovery with health check endpoints. Created /health endpoints for all services, configured healthcheck in Docker Compose, added timeout and retry logic for service calls. Health check endpoints (/health) across all services with timeout and retry logic (config.py: INFERENCE_TIMEOUT=300s, EMBEDDINGS_TIMEOUT=60s).'
+    },
+    {
+      title: 'Unified API gateway pattern',
+      metrics: 'FastAPI proxy routes with header forwarding',
+      description: 'Built unified API gateway pattern with service proxying. Created FastAPI proxy routes using httpx.AsyncClient, implemented header forwarding (excluding hop-by-hop headers), added error handling for connection failures. FastAPI proxy routes (/embeddings/{path:path}, /api/memory) forward requests to backend services.'
+    }
+  ],
+  collaborationAchievements: [
+    {
+      title: 'RevenueCat subscription infrastructure',
+      metrics: 'TestFlight-ready billing flow for 100 internal testers',
+      description: 'Built TestFlight-ready billing flow with full subscription lifecycle management. Implemented RevenueCat SDK integration in revenuecat.ts, built useRevenueCat hook with React Query for customer info, offerings, and purchases, configured environment switching (test/prod keys). RevenueCat SDK integrated with react-native-purchases, configured for 100 internal TestFlight testers.'
+    },
+    {
+      title: 'LLM-based pricing negotiation',
+      metrics: 'Streaming chat interface with $9.99-$39.99 price range',
+      description: 'Implemented LLM-based pricing negotiation with streaming chat interface. Created pricing_agent in agent_tool.py with negotiation system prompt, built streaming negotiation endpoint with EventSourceResponse, implemented tool-based price finalization. /api/negotiate endpoint streams pricing agent responses, finalize_negotiation tool finalizes price ($9.99-$39.99 range).'
+    },
+    {
+      title: 'Seamless paywall integration',
+      metrics: 'Auth-First pattern with premium entitlement checks',
+      description: 'Achieved seamless paywall integration with Auth-First pattern. Implemented Auth-First pattern: App → Auth Check → Premium Check → Show appropriate screen, built usePaywall hook with paywall modal, configured entitlement identifier \'premium\'. useAppInitialization hook checks RevenueCat initialization before app ready, premium entitlement checks before chat access.'
+    },
+    {
+      title: 'TestFlight deployment configuration',
+      metrics: 'App Store Connect products configured, 100 internal testers',
+      description: 'Configured TestFlight deployment with App Store Connect products. Set up product configuration (premium_monthly_10, premium_yearly_10), 100 internal testers. REVENUECAT_TESTFLIGHT_SETUP.md documents product configuration, EAS Build pipeline for TestFlight, documented release process in RELEASE_GUIDE.md.'
+    },
+    {
+      title: 'Code quality and architecture',
+      metrics: '100% TypeScript coverage, event-driven architecture, extensible tool ecosystem',
+      description: 'Achieved reduced runtime errors with full TypeScript coverage. Configured TypeScript with strict mode, implemented type definitions for all API responses, created type-safe React hooks and components. Built decoupled, maintainable code with event-driven architecture using EventEmitter pattern. Created extensible tool ecosystem with MCP integration (simple_mcp_client.py implements MCP protocol, tool_registry supports MCP and custom tools).'
+    }
+  ],
+  technologies: [
+    'React Native',
+    'TypeScript',
+    'FastAPI',
+    'Python',
+    'llama.cpp',
+    'PostgreSQL',
+    'SQLite',
+    'Docker',
+    'Whisper',
+    'RevenueCat',
+    'Expo',
+    'Server-Sent Events (SSE)',
+    'asyncio',
+    'Metal GPU',
+    'NVIDIA RTX',
+    'EAS Build'
+  ]
+};
+
+const openqDrmProjectDetails = {
+  title: 'OpenQ DRM',
+  purpose: 'Distributed contact evaluation and analytics system built on Kafka, MongoDB, and microservices for ingesting GitHub repositories and user data, performing complex evaluations, and providing analytics to teams.',
+  overview: 'Optimized batch processing, Kafka messaging, and query performance for large-scale operations. Achieved ~40% faster processing through parallel architecture, 10x Kafka polling improvement, O(n) to O(1) pagination optimization, and support for 100+ item batch operations. Implemented resilience patterns including bulkhead, exponential backoff, and stream processing.',
+  link: 'https://drm.openq.dev/',
+  backendAchievements: [
+    {
+      title: 'Batch processing optimization',
+      metrics: '~40% faster processing, 100+ items per batch with intelligent concurrency (3-10 concurrent)',
+      description: 'Implemented intelligent batch processing system that automatically calculates optimal batch sizes based on system resources. Built performanceOptimizer.ts module that calculates batch sizes based on CPU cores, available memory, and GitHub API rate limits. Implemented parallel processing for list contacts and repo contacts (previously sequential). Added bulkhead pattern for resource isolation and error containment. Contacts can now be processed in batches up to 100+ items simultaneously with intelligent concurrency limiting (5-10 concurrent operations).'
+    },
+    {
+      title: 'Kafka message delivery optimization',
+      metrics: '10x improvement: polling interval reduced from 1000ms → 100ms, delivery confirmation in 10-100ms',
+      description: 'Optimized Kafka producer polling and delivery confirmation to reduce message latency. Modified kafka.ts KafkaSingleton to implement adaptive polling. Reduced Kafka polling interval from 1000ms to 100ms (10x improvement in report polling). Implemented exponential backoff for delivery confirmation (10ms → 100ms with 1.5x multiplier). Added delivery timeout mechanism (5-10 seconds) to prevent infinite waits. Measured and tracked slow message publishes (warning threshold: >1000ms). Message delivery confirmation now completes in 10-100ms instead of static 100ms waits.'
+    },
+    {
+      title: 'Query optimization for evaluations',
+      metrics: 'Reduced database round trips, optimized aggregation pipeline',
+      description: 'Optimized MongoDB queries for tracking evaluations in progress, reducing database load. Refactored evaluationRouter.ts evaluation progress queries (70+ lines of query optimization). Reduced unnecessary database round trips through query consolidation. Restructured aggregation pipeline for better index utilization. More efficient pagination and filtering logic.'
+    },
+    {
+      title: 'Cursor-based pagination implementation',
+      metrics: 'O(n) → O(1) performance improvement for large datasets',
+      description: 'Implemented cursor-based pagination across multiple data endpoints. Pagination now scales linearly regardless of dataset size (cursor-based vs offset-based). Reduced memory footprint for large result sets. Eliminated "offset N rows" performance degradation on large datasets. Implemented cursor pagination in getCommitSquares endpoint, getMonthlyRepoStats script, contact enrichment queries, and list contacts endpoints. Used MongoDB\'s ObjectId cursors for efficient pagination. Maintained backward compatibility while improving performance.'
+    },
+    {
+      title: 'Enrichment performance improvements',
+      metrics: 'Batch processing for 100+ contacts, improved error tracking with UUIDs',
+      description: 'Significantly improved contact enrichment throughput and reliability. Implemented batch processing for contact enrichments with UUID tracking. Batch enrichment processing implemented (handling 100+ contacts in single batch). Removed redundant enrichment processing steps. Refactored ListEnrichmentUpdater class to use direct batch processing. Added cutoff handling for GitHub URL processing to prevent memory overload. Enhanced logging for enrichment batch processing stages.'
+    },
+    {
+      title: 'Contact batch creation - large-scale support',
+      metrics: '2x capacity: 50 items → 100+ items per batch',
+      description: 'Fixed critical issue preventing creation of large amounts of contacts (100+ items) in single batch. Previously failed when attempting to create >50 contacts at once; now successfully handles 100+ contacts without errors. Fixed contact batch creation state management in ContactSearchProvider. Enhanced AddContactImport component to handle large batches. Improved API endpoint to accept and process large contact lists. Added reducer logic for batch state updates. Improved UI/UX with better progress tracking.'
+    },
+    {
+      title: 'Parallel processing architecture',
+      metrics: 'Three processing lanes: express (0-10), standard (10-100), bulk (100+), ~30-40% faster',
+      description: 'Transformed sequential processing to parallel execution for repo and list contacts. Implemented BulkheadBatchProcessor using proven Netflix/AWS patterns. Configured three processing lanes: Express (0-10 items, direct processing, 20s timeout), Standard (10-100 items, direct processing, 60s timeout), Bulk (100+ items, delegated processing, 5min timeout). Added intelligent routing based on batch size. Implemented timeout handling and failure recovery. Processing time reduced through parallelization, better resource utilization (idle time eliminated), bulkhead pattern prevents cascading failures.'
+    },
+    {
+      title: 'Evaluation progress tracking efficiency',
+      metrics: 'Simplified from multi-step processing to direct aggregation',
+      description: 'Fixed inefficient contact batch creation progress fetching. Removed unnecessary progress calculation layer. Simplified aggregation logic (removed contactBatchCreationProgressCalculator helper). Direct MongoDB aggregation instead of post-processing calculations. Refactored contactBatchCreationRouter progress endpoint. Removed ~95 test lines and progress calculator (simplified codebase). Direct database aggregation for progress metrics.'
+    },
+    {
+      title: 'Stream-based reevaluation system',
+      metrics: 'Improved throughput, better message ordering and delivery guarantees',
+      description: 'Refactored reevaluation system to use Kafka streams for better scalability. Implemented stream processing for reevaluation system. Added reevaluateUuid for batch tracking. Refactored batch reevaluation logic. Improved error handling and retry mechanisms. Improved throughput for reevaluations, better message ordering and delivery guarantees, reduced state management complexity.'
+    }
+  ],
+  frontendAchievements: [
+    {
+      title: 'Frontend data fetching optimization',
+      metrics: 'Optimized queries with limit parameters, infinite scroll, virtual pagination',
+      description: 'Improved frontend responsiveness through optimized data queries and pagination. Added limit parameters to list queries (optimized data fetching). Implemented infinite scroll with pagination. Fixed virtual pagination for large tables. Refactored data fetching to use cursor pagination. Enhanced table virtualization for large datasets. Improved React Query integration.'
+    }
+  ],
+  devopsAchievements: [
+    {
+      title: 'Resilience patterns implementation',
+      metrics: 'Bulkhead pattern, exponential backoff (10ms-100ms), timeout mechanisms (5s-10s)',
+      description: 'Implemented resilience patterns for distributed system reliability. Bulkhead Pattern for resource isolation for different batch sizes. Exponential Backoff for Kafka delivery confirmation with adaptive polling (10ms-100ms). Timeout Mechanisms with connection (5s) and delivery (10s) timeouts to prevent hangs. Stream Processing with Kafka-based workflow for reevaluations with UUID tracking.'
+    },
+    {
+      title: 'Code quality improvements',
+      metrics: 'Reduced complexity, removed ~95 lines of legacy code, standardized constants',
+      description: 'Improved codebase maintainability and performance. Reduced complexity through batch consolidation. Removed legacy progress calculation code (~95 lines removed). Introduced performance monitoring and logging. Standardized constants for batch sizes.'
+    }
+  ],
+  collaborationAchievements: [],
+  technologies: [
+    'TypeScript',
+    'Node.js',
+    'Kafka',
+    'MongoDB',
+    'React',
+    'Docker',
+    'Microservices',
+    'React Query',
+    'Docker Compose',
+    'Kafka Streams'
+  ]
+};
+
+const projectDetailsMap = {
+  'Saya': sayProjectDetails,
+  'Geist AI': geistProjectDetails,
+  'OpenQ DRM': openqDrmProjectDetails
+};
 ---
 
-<section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
-  <div class="w-full max-w-6xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4 text-zinc-900 dark:text-white">
-        Featured Projects
-      </h2>
-      <div class="w-16 h-0.5 bg-cyan-600 dark:bg-cyan-500 mx-auto mb-4"></div>
-      <p class="text-base text-zinc-900 dark:text-white max-w-2xl mx-auto">
-        A selection of projects showcasing my expertise in full-stack development, cloud architecture, and AI integration
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {projects.map((project) => (
-        <div class="border border-zinc-200 dark:border-zinc-700 rounded-lg overflow-hidden bg-white dark:bg-zinc-800 hover:border-cyan-600 dark:hover:border-cyan-400 transition-colors">
-          <div class="h-40 bg-zinc-100 dark:bg-zinc-700"></div>
-          <div class="p-6">
-            <div class="flex items-start justify-between mb-3">
-              <h3 class="text-lg font-bold text-zinc-900 dark:text-white">{project.title}</h3>
-              {project.highlight && (
-                <span class="px-2 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-600 dark:text-cyan-400 text-xs font-medium rounded">Featured</span>
-              )}
-            </div>
-            <p class="text-sm text-zinc-900 dark:text-white mb-4 leading-relaxed">
-              {project.description}
-            </p>
-            
-            <div class="flex flex-wrap gap-2 mb-4">
-              {project.technologies.map((tech) => (
-                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-700 text-zinc-900 dark:text-white rounded text-xs">
-                  {tech}
-                </span>
-              ))}
-            </div>
-            
-            <div class="flex gap-4">
-              {project.github && (
-                <a href={project.github} target="_blank" rel="noopener noreferrer" 
-                   class="flex items-center gap-2 text-sm text-zinc-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  <Github class="w-4 h-4" />
-                  <span>Code</span>
-                </a>
-              )}
-              {project.link && (
-                <a href={project.link} target="_blank" rel="noopener noreferrer"
-                   class="flex items-center gap-2 text-sm text-zinc-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  <ExternalLink class="w-4 h-4" />
-                  <span>Live Demo</span>
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+<Projects client:load projects={projects} projectDetails={projectDetailsMap} />
