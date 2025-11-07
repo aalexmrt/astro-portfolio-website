@@ -282,7 +282,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
           )}
 
           {/* Images */}
-          {project.images && project.images.length > 0 && (
+          {/* {project.images && project.images.length > 0 && (
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-5">
                 <Image className="w-5 h-5 text-indigo-600 flex-shrink-0" />
@@ -329,7 +329,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 })}
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
