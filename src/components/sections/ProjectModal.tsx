@@ -94,58 +94,55 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
     >
       <div className="bg-white dark:bg-zinc-800 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col animate-in zoom-in-95 slide-in-from-bottom-4 duration-300">
         {/* Header */}
-        <div className="flex items-start justify-between p-8 border-b border-zinc-200 dark:border-zinc-700 bg-gradient-to-r from-transparent via-indigo-50/30 to-transparent dark:via-indigo-900/10">
-          <div className="flex-1">
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-1 bg-gradient-to-r from-zinc-900 to-zinc-700 dark:from-white dark:to-zinc-300 bg-clip-text">
-              {project.title}
-            </h2>
-            {project.subtitle && (
-              <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-4 font-medium">
-                {project.subtitle}
-              </p>
-            )}
-            <div className="flex flex-wrap gap-3">
-              {project.links.live && (
-                <a
-                  href={project.links.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-indigo-600/30 hover:scale-105 active:scale-95"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  <span>Live Demo</span>
-                </a>
-              )}
-              {project.links.github && (
-                <a
-                  href={project.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm px-4 py-2.5 border-2 border-indigo-200 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 font-semibold rounded-lg transition-all duration-200 hover:border-indigo-400 dark:hover:border-indigo-500 hover:scale-105 active:scale-95"
-                  title={
-                    isOrganizationUrl(project.links.github)
-                      ? "Private repository - Organization link"
-                      : "View source code"
-                  }
-                >
-                  {isOrganizationUrl(project.links.github) ? (
-                    <>
-                      <Building2 className="w-4 h-4" />
-                      <span>Organization</span>
-                    </>
-                  ) : (
-                    <>
-                      <Github className="w-4 h-4" />
-                      <span>GitHub</span>
-                    </>
-                  )}
-                </a>
-              )}
+        <div className="flex items-start justify-between p-4 sm:p-8 border-b border-zinc-200 dark:border-zinc-700 bg-gradient-to-r from-transparent via-indigo-50/30 to-transparent dark:via-indigo-900/10">
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-10">
+              <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white bg-gradient-to-r from-zinc-900 to-zinc-700 dark:from-white dark:to-zinc-300 bg-clip-text">
+                {project.title}
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {project.links.live && (
+                  <a
+                    href={project.links.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs px-3 py-1.5 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-indigo-600/30 hover:scale-105 active:scale-95 flex-shrink-0"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>Live Demo</span>
+                  </a>
+                )}
+                {project.links.github && (
+                  <a
+                    href={project.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs px-3 py-1.5 border-2 border-indigo-200 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 font-semibold rounded-lg transition-all duration-200 hover:border-indigo-400 dark:hover:border-indigo-500 hover:scale-105 active:scale-95 flex-shrink-0"
+                    title={
+                      isOrganizationUrl(project.links.github)
+                        ? "Private repository - Organization link"
+                        : "View source code"
+                    }
+                  >
+                    {isOrganizationUrl(project.links.github) ? (
+                      <>
+                        <Building2 className="w-3.5 h-3.5" />
+                        <span>Organization</span>
+                      </>
+                    ) : (
+                      <>
+                        <Github className="w-3.5 h-3.5" />
+                        <span>GitHub</span>
+                      </>
+                    )}
+                  </a>
+                )}
+              </div>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="ml-4 p-2 hover:bg-zinc-100 dark:hover:bg-zinc-700 rounded-xl transition-all duration-200 hover:scale-110 hover:rotate-90"
+            className="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-700 rounded-xl transition-all duration-200 hover:scale-110 hover:rotate-90 flex-shrink-0 ml-4"
             aria-label="Close modal"
           >
             <X className="w-6 h-6 text-zinc-900 dark:text-white" />
