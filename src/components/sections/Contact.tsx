@@ -12,22 +12,55 @@ const ContactForm = () => {
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
+    setErrorMessage("");
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        // Handle API errors
+        setSubmitStatus("error");
+        setErrorMessage(
+          data.error || me.contact.form.submit.error
+        );
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Success
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
 
+      // Reset success message after 5 seconds
       setTimeout(() => {
         setSubmitStatus("idle");
-      }, 3000);
-    }, 1000);
+      }, 5000);
+    } catch (error) {
+      // Handle network errors or unexpected errors
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+      setErrorMessage(me.contact.form.submit.error);
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -177,7 +210,7 @@ const ContactForm = () => {
 
             {submitStatus === "error" && (
               <div className="p-4 bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-700 rounded-lg text-red-800 dark:text-red-300">
-                {me.contact.form.submit.error}
+                {errorMessage || me.contact.form.submit.error}
               </div>
             )}
           </form>

@@ -1,11 +1,14 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
 
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server', // Enable server-side rendering for API routes
+  adapter: cloudflare(), // Cloudflare Pages adapter
   vite: {
     plugins: [tailwindcss()]
   },
