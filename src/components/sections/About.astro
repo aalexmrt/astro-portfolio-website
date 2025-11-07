@@ -15,14 +15,15 @@ import me from '../../data/me.json';
     <div class="grid md:grid-cols-2 gap-12 items-center">
       {/* Photo */}
       <div class="flex justify-center md:justify-start order-2 md:order-1">
-        <div class="w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden border-4 border-indigo-200 dark:border-indigo-800 shadow-lg bg-gradient-to-br from-indigo-100 to-blue-100 dark:from-indigo-900/30 dark:to-blue-900/30 flex items-center justify-center flex-shrink-0">
-          <img 
-            src="/photo.jpg" 
-            alt="Alex Martinez" 
-            class="w-full h-full object-cover"
-            onerror="this.style.display='none'"
+        <div class="relative w-56 h-56 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] rounded-2xl overflow-hidden border-4 border-indigo-200 dark:border-indigo-800 shadow-lg bg-gradient-to-br from-indigo-100 to-blue-100 dark:from-indigo-900/30 dark:to-blue-900/30 flex-shrink-0">
+          <img
+            src="/images/profile.webp"
+            alt="Alex Martinez"
+            class="w-full h-full object-cover object-[90%_30%]"
+            loading="lazy"
+            onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
           />
-          <span class="text-indigo-400 dark:text-indigo-300 text-7xl font-bold">AM</span>
+          <span class="hidden absolute inset-0 flex items-center justify-center text-indigo-400 dark:text-indigo-300 text-7xl font-bold">AM</span>
         </div>
       </div>
 
