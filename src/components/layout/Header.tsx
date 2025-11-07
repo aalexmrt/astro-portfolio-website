@@ -79,7 +79,7 @@ const Header = () => {
             className="p-2.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 group"
             aria-label="Scroll to top"
           >
-            <Home className="w-5 h-5 text-zinc-600 dark:text-zinc-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors relative z-10" />
+            <Home className="w-5 h-5 text-zinc-600 dark:text-zinc-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors relative z-10" />
           </button>
 
           {/* Desktop Navigation - Centered */}
@@ -90,15 +90,15 @@ const Header = () => {
                 href={`#${link.id}`}
                 className={`relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${
                   activeSection === link.id
-                    ? "text-cyan-600 dark:text-cyan-400"
+                    ? "text-indigo-600 dark:text-indigo-400"
                     : "text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white"
                 }`}
               >
                 <span className="relative z-10">{link.label}</span>
                 {activeSection === link.id && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-cyan-600 dark:bg-cyan-400 rounded-full"></span>
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-full"></span>
                 )}
-                <span className="absolute inset-0 bg-cyan-600/10 dark:bg-cyan-400/10 rounded-lg scale-0 hover:scale-100 transition-transform duration-200"></span>
+                <span className="absolute inset-0 bg-indigo-600/10 dark:bg-indigo-400/10 rounded-lg scale-0 hover:scale-100 transition-transform duration-200"></span>
               </a>
             ))}
           </div>
@@ -110,7 +110,7 @@ const Header = () => {
               className="relative p-2.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 group"
               aria-label="Toggle theme"
             >
-              <span className="absolute inset-0 bg-cyan-600/10 dark:bg-cyan-400/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200"></span>
+              <span className="absolute inset-0 bg-indigo-600/10 dark:bg-indigo-400/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200"></span>
               {isDark ? (
                 <Sun className="w-5 h-5 text-zinc-600 dark:text-white relative z-10 transition-transform duration-200 group-hover:scale-110" />
               ) : (
@@ -144,8 +144,8 @@ const Header = () => {
               onClick={scrollToTop}
               className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                 activeSection === "hero"
-                  ? "text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-900/20 border-l-2 border-cyan-600 dark:border-cyan-400"
-                  : "text-zinc-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                  ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 border-l-2 border-indigo-600 dark:border-indigo-400"
+                  : "text-zinc-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-zinc-100 dark:hover:bg-zinc-800"
               }`}
             >
               <Home className="w-5 h-5" />
@@ -157,8 +157,8 @@ const Header = () => {
                 href={`#${link.id}`}
                 className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeSection === link.id
-                    ? "text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-900/20 border-l-2 border-cyan-600 dark:border-cyan-400"
-                    : "text-zinc-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                    ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 border-l-2 border-indigo-600 dark:border-indigo-400"
+                    : "text-zinc-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-zinc-100 dark:hover:bg-zinc-800"
                 }`}
                 onClick={() => scrollToSection(link.id)}
               >
@@ -168,7 +168,7 @@ const Header = () => {
             <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800">
               <button
                 onClick={toggleTheme}
-                className="flex items-center space-x-3 w-full px-4 py-3 rounded-lg text-zinc-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 text-sm font-medium"
+                className="flex items-center space-x-3 w-full px-4 py-3 rounded-lg text-zinc-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 text-sm font-medium"
               >
                 {isDark ? (
                   <Sun className="w-5 h-5" />

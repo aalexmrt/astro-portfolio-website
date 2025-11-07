@@ -1,78 +1,37 @@
 ---
-const skills = {
-  backend: ['Node.js', 'Python', 'Go', 'FastAPI', 'tRPC', 'PostgreSQL', 'MongoDB', 'Prisma', 'Kafka', 'sqlc'],
-  frontend: ['React', 'Next.js', 'TypeScript', 'React Native', 'Tailwind CSS', 'NativeWind', 'React Query'],
-  cloud: ['AWS', 'Docker', 'Kubernetes', 'Helm', 'GitHub Actions', 'Sentry'],
-  ai: ['llama.cpp', 'sentence-transformers', 'multi-agent orchestration', 'SSE streaming', 'Whisper (STT)'],
-  devops: ['CI/CD', 'GitHub Actions', 'Helm Charts', 'GPU Acceleration', 'NVIDIA Operator']
-};
+import me from '../../data/me.json';
 ---
 
 <section id="about" class="py-20 px-4 sm:px-6 lg:px-8">
   <div class="w-full max-w-6xl mx-auto">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold mb-4 text-zinc-900 dark:text-white">
-        About Me
+        {me.about.title}
       </h2>
-      <div class="w-16 h-0.5 bg-cyan-600 dark:bg-cyan-500 mx-auto"></div>
+      <div class="w-16 h-0.5 bg-indigo-600 dark:bg-indigo-500 mx-auto"></div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
-      <div>
-        <p class="text-base leading-relaxed text-zinc-900 dark:text-white mb-4">
-          Full-stack engineer specializing in AI-powered systems and developer tools. Currently building OpenQ DRM, an AI-driven platform that analyzes GitHub ecosystems to provide insights about open-source repositories, contributors, and dependencies.
-        </p>
-        <p class="text-base leading-relaxed text-zinc-900 dark:text-white mb-4">
-          Experienced in full-stack development across modern frameworks (Next.js, React, TypeScript), backend services (Node.js, Go, Python), and cloud infrastructure (Kubernetes, Docker, AWS). Built conversational AI products with streaming capabilities and multi-agent orchestration.
-        </p>
-        <p class="text-base leading-relaxed text-zinc-900 dark:text-white">
-          Passionate about developer experience, data pipelines, and building scalable systems that power analytics and insights.
-        </p>
+    {/* Photo + Bio Section */}
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      {/* Photo */}
+      <div class="flex justify-center md:justify-start order-2 md:order-1">
+        <div class="w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden border-4 border-indigo-200 dark:border-indigo-800 shadow-lg bg-gradient-to-br from-indigo-100 to-blue-100 dark:from-indigo-900/30 dark:to-blue-900/30 flex items-center justify-center flex-shrink-0">
+          <img 
+            src="/photo.jpg" 
+            alt="Alex Martinez" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'"
+          />
+          <span class="text-indigo-400 dark:text-indigo-300 text-7xl font-bold">AM</span>
+        </div>
       </div>
-      
-      <div class="border border-zinc-200 dark:border-zinc-700 rounded-lg p-8 bg-white dark:bg-zinc-800">
-        <h3 class="text-xl font-bold mb-6 text-zinc-900 dark:text-white">Key Strengths</h3>
-        <ul class="space-y-3">
-          <li class="flex items-start text-zinc-900 dark:text-white">
-            <span class="text-cyan-600 dark:text-cyan-400 mr-3">•</span>
-            <span>Backend Architecture & API Design</span>
-          </li>
-          <li class="flex items-start text-zinc-900 dark:text-white">
-            <span class="text-cyan-600 dark:text-cyan-400 mr-3">•</span>
-            <span>Cloud Infrastructure & DevOps</span>
-          </li>
-          <li class="flex items-start text-zinc-900 dark:text-white">
-            <span class="text-cyan-600 dark:text-cyan-400 mr-3">•</span>
-            <span>AI/ML Integration & Deployment</span>
-          </li>
-          <li class="flex items-start text-zinc-900 dark:text-white">
-            <span class="text-cyan-600 dark:text-cyan-400 mr-3">•</span>
-            <span>Full-Stack Development</span>
-          </li>
-          <li class="flex items-start text-zinc-900 dark:text-white">
-            <span class="text-cyan-600 dark:text-cyan-400 mr-3">•</span>
-            <span>Performance Optimization</span>
-          </li>
-        </ul>
-      </div>
-    </div>
 
-    <div>
-      <h3 class="text-2xl font-bold mb-8 text-center text-zinc-900 dark:text-white">Skills & Technologies</h3>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {Object.entries(skills).map(([category, items]) => (
-          <div class="border border-zinc-200 dark:border-zinc-700 rounded-lg p-6 bg-white dark:bg-zinc-800">
-            <h4 class="text-base font-semibold mb-4 text-cyan-600 dark:text-cyan-400 capitalize">
-              {category}
-            </h4>
-            <div class="flex flex-wrap gap-2">
-              {items.map((skill) => (
-                <span class="px-3 py-1 bg-zinc-100 dark:bg-zinc-700 text-zinc-900 dark:text-white rounded text-sm">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
+      {/* Bio */}
+      <div class="order-1 md:order-2">
+        {me.about.bio.map((paragraph) => (
+          <p class="text-lg leading-relaxed text-zinc-900 dark:text-white mb-6">
+            {paragraph}
+          </p>
         ))}
       </div>
     </div>

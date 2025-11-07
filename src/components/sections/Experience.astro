@@ -1,96 +1,17 @@
 ---
-interface Experience {
-  company: string;
-  role: string;
-  period: string;
-  location: string;
-  description: string[];
-  technologies: string[];
-}
-
-const experiences: Experience[] = [
-  {
-    company: 'OpenQ Labs',
-    role: 'Full Stack AI Engineer',
-    period: 'Nov 2024 – Present',
-    location: 'Germany (remote)',
-    description: [
-      'Optimized GitHub analytics pipeline to process thousands of repositories concurrently by improving Kafka topic design, batching, and database synchronization',
-      'Reduced ingestion latency by coordinating evaluator and repository-synchronization services, ensuring efficient processing across distributed workflows',
-      'Delivered key features for OpenQ DRM using Next.js 15, tRPC, and Tailwind to visualize repository and contributor insights',
-      'Automated build and deployment workflows with GitHub Actions and Helm, reducing release time and ensuring consistent multi-service deployments on Kubernetes',
-      'Scaled ingestion reliability through improved job handling and resilience patterns, stabilizing long-running Kafka workflows'
-    ],
-    technologies: ['TypeScript', 'Go', 'Next.js', 'tRPC', 'React Query', 'Node.js', 'Kafka', 'PostgreSQL', 'MongoDB', 'Prisma', 'Docker', 'Helm', 'Kubernetes']
-  },
-  {
-    company: 'Stackless Data',
-    role: 'Full Stack Engineer',
-    period: 'Oct 2023 – Oct 2024',
-    location: 'San Francisco, CA, US (remote)',
-    description: [
-      'Developed onboarding and integrations connecting Fivetran, Snowflake, BigQuery, and AWS for automated data ingestion',
-      'Integrated a BI tool for customer reporting using its React SDK',
-      'Built a responsive catalog for customers to explore our data apps using a headless CMS',
-      'Improved page performance by reducing load time by 4x with chunked pagination and URL-based search',
-      'Enhanced the app UI for seamless cross-device experiences by improving design elements and fixing responsiveness bugs'
-    ],
-    technologies: ['React', 'Bootstrap', 'Node', 'Strapi', 'Express', 'TypeScript', 'Docker', 'AWS', 'Kubernetes', 'Snowflake', 'BigQuery', 'Prefect', 'PostgreSQL']
-  },
-  {
-    company: 'Pal Robotics',
-    role: 'Software Engineer',
-    period: 'Sept 2020 – May 2023',
-    location: 'Barcelona, Spain',
-    description: [
-      'Reduced the ISO images generation time by 20% by improving the pipeline with Bash and Docker',
-      'Improved robot validation accuracy by optimizing an internal Python-based tool',
-      'Delivered updated software to customers by migrating the Python codebase to Python 3, resolving compatibility issues and updating the pipeline with GitHub CI/CD'
-    ],
-    technologies: ['Python', 'Docker', 'Git', 'GitHub CI/CD', 'Jenkins', 'Bash']
-  }
-];
+import me from '../../data/me.json';
+import ExperienceComponent from './Experience';
 ---
 
 <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8">
   <div class="w-full max-w-6xl mx-auto">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold mb-4 text-zinc-900 dark:text-white">
-        Experience
+        {me.experience.title}
       </h2>
-      <div class="w-16 h-0.5 bg-cyan-600 dark:bg-cyan-500 mx-auto"></div>
+      <div class="w-16 h-0.5 bg-indigo-600 dark:bg-indigo-500 mx-auto"></div>
     </div>
 
-    <div class="space-y-8">
-      {experiences.map((exp) => (
-        <div class="border border-zinc-200 dark:border-zinc-700 rounded-lg p-8 bg-white dark:bg-zinc-800">
-          <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-            <div>
-              <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-1">{exp.role}</h3>
-              <p class="text-base text-zinc-900 dark:text-white">{exp.company}</p>
-              <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-1">{exp.location}</p>
-            </div>
-            <span class="text-sm font-medium text-cyan-600 dark:text-cyan-400 mt-2 md:mt-0">{exp.period}</span>
-          </div>
-          
-          <ul class="space-y-2 text-zinc-900 dark:text-white mb-6">
-            {exp.description.map((item) => (
-              <li class="flex items-start">
-                <span class="text-cyan-600 dark:text-cyan-400 mr-3">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          
-          <div class="flex flex-wrap gap-2">
-            {exp.technologies.map((tech) => (
-              <span class="px-3 py-1 bg-zinc-100 dark:bg-zinc-700 text-zinc-900 dark:text-white rounded text-sm">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
+    <ExperienceComponent client:load items={me.experience.items} />
   </div>
 </section>

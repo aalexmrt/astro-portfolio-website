@@ -1,0 +1,768 @@
+{
+  "name": "Alex Martinez",
+  "title": "Full-Stack Engineer building AI systems, Developer Tools, and Data Platforms",
+  "tagline": "I build scalable systems and AI-driven products that turn complex data into simple, meaningful tools for developers and teams.",
+  "social": {
+    "github": "https://github.com/aalexmrt",
+    "linkedin": "https://www.linkedin.com/in/alexmartinez598/",
+    "email": "alexmartinez.mm98@gmail.com"
+  },
+  "hero": {
+    "name": "Alex Martinez",
+    "title": "Full-Stack Engineer building AI systems, Developer Tools, and Data Platforms",
+    "tagline": "I build scalable systems and AI-driven products that turn complex data into simple, meaningful tools for developers and teams.",
+    "cta": {
+      "primary": {
+        "text": "View My Work",
+        "href": "#projects"
+      },
+      "secondary": {
+        "text": "Get In Touch",
+        "href": "#contact"
+      }
+    }
+  },
+
+  "about": {
+    "title": "About Me",
+    "bio": [
+      "I'm a full-stack engineer who enjoys building intelligent systems that combine data, AI, and modern web technologies.",
+      "My work focuses on analytics platforms and AI-powered products, from developer insight tools like OpenQ DRM and GoGitGuru to conversational and on-device AI systems such as Saya and Geist AI.",
+      "I like designing scalable backend architectures, building frontend dashboards, and delivering reliable solutions that make an impact."
+    ]
+  },
+
+  "experience": {
+    "title": "Experience",
+    "items": [
+      {
+        "company": "OpenQ Labs",
+        "role": "Full Stack AI Engineer",
+        "period": "Nov 2024 – Present",
+        "duration": "+1 year",
+        "location": "Germany (remote)",
+        "description": [
+          "Built and maintained OpenQ DRM and GoGitGuru, powering the Ethereum Ecosystem Report with large-scale GitHub data processing.",
+          "Improved data pipelines and Kafka topic design, enabling concurrent processing of thousands of repositories and reducing ingestion latency.",
+          "Developed evaluation and synchronization systems across Go and TypeScript services to keep GitHub data consistent between MongoDB and PostgreSQL.",
+          "Worked on Saya, an AI platform that converts natural language queries into SQL for GitHub developer discovery, and Geist AI, an on-device multi-agent chat system focused on privacy and speed.",
+          "Automated Helm-based deployments and CI/CD workflows with GitHub Actions to ensure reliable multi-environment releases on GKE."
+        ],
+        "technologies": [
+          "Go",
+          "TypeScript",
+          "Next.js",
+          "Kafka",
+          "PostgreSQL",
+          "MongoDB",
+          "Kubernetes",
+          "Docker",
+          "tRPC",
+          "Prisma",
+          "Helm",
+          "CircleCI"
+        ]
+      },
+      {
+        "company": "Stackless Data",
+        "role": "Full Stack Engineer",
+        "period": "Oct 2023 – Oct 2024",
+        "duration": "+1 year",
+        "location": "San Francisco, CA, US (remote)",
+        "description": [
+          "Contributed to Stackless, a data platform connecting Fivetran, Snowflake, and GoodData for automated analytics pipelines.",
+          "Developed onboarding flows and backend integrations that simplified client setup and reduced manual configuration time.",
+          "Built React-based dashboards with Strapi CMS and Node services, integrating and embedding GoodData BI dashboards for advanced data visualization.",
+          "Improved page performance and responsiveness by implementing chunked pagination and optimizing data fetching."
+        ],
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Node",
+          "Express",
+          "Strapi",
+          "Docker",
+          "AWS",
+          "Snowflake",
+          "BigQuery",
+          "Prefect",
+          "PostgreSQL",
+          "GoodData"
+        ]
+      },
+      {
+        "company": "Independent Consulting",
+        "role": "Full Stack Engineer (Freelance)",
+        "period": "May 2023 – Present",
+        "duration": "+3 years",
+        "location": "Remote",
+        "description": [
+          "Occasionally helped startups with maintenance work and small integrations, focusing on frontend development, API connections, and cloud setup for existing projects."
+        ],
+        "technologies": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Node",
+          "Express",
+          "Docker",
+          "PostgreSQL",
+          "MongoDB",
+          "AWS",
+          "Vercel"
+        ]
+      },
+      {
+        "company": "Pal Robotics",
+        "role": "Software Engineer",
+        "period": "Sept 2020 – May 2023",
+        "duration": "+3 years",
+        "location": "Barcelona, Spain",
+        "description": [
+          "Improved robot validation tools written in Python, increasing testing accuracy and reliability.",
+          "Reduced ISO image generation time by 20% by optimizing build pipelines with Bash and Docker.",
+          "Migrated the codebase to Python 3 and integrated CI/CD workflows using GitHub and Jenkins for faster and more consistent delivery."
+        ],
+        "technologies": ["Python", "Docker", "Jenkins", "GitHub CI/CD", "Bash"]
+      }
+    ]
+  },
+
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+    "heading": "Let's Connect",
+    "description": "Whether you're looking for a full-stack engineer, need help with AI/ML integration, or want to discuss cloud architecture, I'd love to hear from you.",
+    "location": "Available for remote work worldwide",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your.email@example.com"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell me about your project or just say hello!"
+      },
+      "submit": {
+        "text": "Send Message",
+        "sending": "Sending...",
+        "success": "Thank you! Your message has been sent. I'll get back to you soon.",
+        "error": "Something went wrong. Please try again or email me directly."
+      }
+    }
+  },
+  "projects": {
+    "items": [
+      {
+        "title": "Saya",
+        "slug": "saya",
+        "card": {
+          "title": "Saya",
+          "shortDescription": "AI-powered GitHub developer discovery platform that understands natural language to find top engineers through real data.",
+          "tags": ["AI", "Web", "Full Stack", "Recruitment"],
+          "technologies": [
+            "React 19",
+            "Express 5",
+            "PostgreSQL",
+            "WebSocket",
+            "Gemini 2.5 Flash"
+          ],
+          "image": null,
+          "links": {
+            "live": "https://saya.so/",
+            "github": "https://github.com/OpenQDev/"
+          }
+        },
+        "modal": {
+          "title": "Saya",
+          "subtitle": "AI-powered developer discovery platform",
+          "purpose": "Saya helps recruiters and companies find developers through natural language queries that analyze real GitHub activity instead of resumes.",
+          "overview": "Built as a customer-facing MVP, Saya combines an AI chat interface with live data from GitHub to identify relevant developers. It converts user queries into optimized SQL statements using Google Gemini 2.5 Flash, running them against OpenQ’s GitGuru database. The app features real-time WebSocket communication, credit-based access control, Clerk authentication, and interactive visualizations for query results.",
+          "keyFeatures": [
+            {
+              "category": "AI System",
+              "items": [
+                "Translates natural language into SQL queries with Google Gemini 2.5 Flash",
+                "Implements structured function calling for precise query generation",
+                "Includes schema-aware prompts for accurate and efficient query building"
+              ]
+            },
+            {
+              "category": "Backend",
+              "items": [
+                "Express 5.1 server with TypeScript and WebSocket integration",
+                "JWT-secured real-time connections with streaming AI responses",
+                "Credit-based authorization using PermissionsClient pattern",
+                "Webhook support and Clerk authentication integration"
+              ]
+            },
+            {
+              "category": "Frontend",
+              "items": [
+                "React 19.1 + Vite 7.0 frontend in TypeScript",
+                "Chat-like WebSocket interface with real-time AI streaming",
+                "Interactive tables for developer data and error visualizations",
+                "Built with Clerk, Radix UI, and TailwindCSS 4.1"
+              ]
+            },
+            {
+              "category": "DevOps",
+              "items": [
+                "Multi-stage Docker builds for small, secure images",
+                "Monorepo setup managed with pnpm 10 and Turbo",
+                "Layered modular architecture for clear separation of concerns"
+              ]
+            }
+          ],
+          "technicalHighlights": [
+            "Eliminated database timeout issues by refactoring query logic with performance rules",
+            "Implemented secure WebSocket layer with credit tracking and real-time AI streaming",
+            "Built modular AI tool architecture for flexible function calling and expansion",
+            "Used Docker multi-stage builds and non-root containers for better security"
+          ],
+          "techStack": [
+            "React 19.1",
+            "TypeScript 5.8",
+            "Express 5.1",
+            "PostgreSQL",
+            "WebSocket (ws 8.18)",
+            "Google Gemini 2.5 Flash",
+            "Docker",
+            "Turbo",
+            "pnpm 10.0",
+            "Clerk",
+            "Radix UI",
+            "TailwindCSS 4.1",
+            "Vite 7.0"
+          ],
+          "metrics": {
+            "performance": "Reduced database timeouts to zero by optimizing query strategies",
+            "scalability": "Handles concurrent user queries with JWT-secured real-time sessions",
+            "efficiency": "Average query execution time under 300ms"
+          },
+          "links": {
+            "live": "https://saya.so/",
+            "github": "https://github.com/OpenQDev/"
+          },
+          "images": [
+            "/images/saya-overview.png",
+            "/images/saya-chat.png",
+            "/images/saya-dashboard.png"
+          ]
+        }
+      },
+      {
+        "title": "Geist AI",
+        "slug": "geist-ai",
+        "card": {
+          "title": "Geist AI",
+          "shortDescription": "Local-first AI chat app with multi-agent system, on-device inference, and private memory.",
+          "tags": ["AI", "Mobile", "LLM", "Chat", "On-Device"],
+          "technologies": [
+            "React Native",
+            "FastAPI",
+            "llama.cpp",
+            "RevenueCat",
+            "Kubernetes"
+          ],
+          "image": null,
+          "links": {
+            "live": "https://geist.im/",
+            "github": "https://github.com/geistlabs/geistai"
+          }
+        },
+        "modal": {
+          "title": "Geist AI",
+          "subtitle": "On-device AI Chat with Multi-Agent System",
+          "purpose": "Geist AI is a mobile chat app that runs locally and focuses on privacy, speed, and context. It uses a multi-agent setup where each agent handles a specific task and can interact with others dynamically. The system combines local inference, persistent memory, and voice input to create fast and context-aware conversations without relying on external APIs.",
+          "overview": "The app runs fully on-device using llama.cpp with GPU acceleration, SQLite for semantic memory, and Whisper for voice transcription. A FastAPI backend supports optional remote inference, embeddings, and analytics. The frontend is built with React Native and Expo for smooth cross-platform performance and local-first behavior.",
+          "keyFeatures": [
+            {
+              "category": "AI System",
+              "items": [
+                "Multi-agent setup with specialized reasoning, creative, and negotiation agents",
+                "Function and tool calling with recursive task execution",
+                "Local llama.cpp inference optimized for GPU acceleration",
+                "Semantic memory retrieval using SQLite and cosine similarity"
+              ]
+            },
+            {
+              "category": "Backend",
+              "items": [
+                "FastAPI microservices for inference, embeddings, memory, and Whisper STT",
+                "Server-Sent Events (SSE) for real-time streaming responses",
+                "GPU acceleration with Metal and NVIDIA CUDA",
+                "PostgreSQL for session tracking and metrics"
+              ]
+            },
+            {
+              "category": "Frontend",
+              "items": [
+                "React Native + Expo with TypeScript strict mode",
+                "Voice input and output via Whisper integration",
+                "SQLite-based on-device memory and offline chat storage",
+                "Custom TokenBatcher for smooth 60fps chat rendering"
+              ]
+            },
+            {
+              "category": "DevOps",
+              "items": [
+                "Kubernetes deployment with Helm charts for multiple services",
+                "GPU scheduling with NVIDIA GPU Operator",
+                "MetalLB for load balancing and Ingress-Nginx for routing",
+                "Automated TLS certificates using cert-manager and Let’s Encrypt"
+              ]
+            }
+          ],
+          "technicalHighlights": [
+            "Reduced local inference latency from 20s to 1–2s using Metal-optimized llama.cpp builds",
+            "Achieved sub-5s first-token latency and >10 tokens/sec throughput",
+            "Implemented on-device semantic memory for context recall",
+            "Added LLM-based price negotiation flow using RevenueCat SDK",
+            "Deployed 8+ GPU-aware microservices with Kubernetes orchestration"
+          ],
+          "techStack": [
+            "React Native 0.81.4",
+            "Expo 54.0.13",
+            "TypeScript 5.9.2",
+            "FastAPI",
+            "Python 3.11+",
+            "llama.cpp",
+            "PostgreSQL",
+            "SQLite",
+            "Whisper",
+            "RevenueCat",
+            "NativeWind",
+            "Docker",
+            "Kubernetes",
+            "Helm",
+            "MetalLB",
+            "Ingress-Nginx",
+            "cert-manager"
+          ],
+          "metrics": {
+            "performance": "Sub-5s first-token latency and >10 tokens/sec throughput",
+            "optimization": "Reduced local inference latency from 20s to 1–2s using GPU-accelerated builds",
+            "rendering": "Maintained 60fps rendering via TokenBatcher with 16ms flush intervals"
+          },
+          "links": {
+            "live": "https://geist.im/",
+            "github": "https://github.com/geistlabs/geistai"
+          },
+          "images": [
+            "/images/geistai-chat.png",
+            "/images/geistai-architecture.png",
+            "/images/geistai-mobile-ui.png"
+          ]
+        }
+      },
+      {
+        "title": "OpenQ DRM",
+        "slug": "openq-drm",
+        "card": {
+          "title": "OpenQ DRM",
+          "shortDescription": "Enterprise analytics platform for analyzing GitHub repositories, users, and dependencies with event-driven microservices.",
+          "tags": ["Data", "Analytics", "Microservices", "Enterprise", "Cloud"],
+          "technologies": [
+            "Next.js 15",
+            "Kafka",
+            "MongoDB",
+            "PostgreSQL",
+            "Kubernetes"
+          ],
+          "image": null,
+          "links": {
+            "live": "https://drm.openq.dev/",
+            "github": "https://github.com/OpenQDev/"
+          }
+        },
+        "modal": {
+          "title": "OpenQ DRM",
+          "subtitle": "Developer Relationship Management Platform",
+          "purpose": "OpenQ DRM is an enterprise analytics platform built to analyze GitHub repositories, contributors, and dependencies at scale. It helps teams evaluate developer ecosystems, discover key contributors, and track open-source adoption across organizations and projects.",
+          "overview": "The platform runs on an event-driven architecture using Kafka, MongoDB, and PostgreSQL. It processes large-scale GitHub data through distributed microservices for evaluation, synchronization, and insight generation. The system is fully containerized, deployed on Google Kubernetes Engine (GKE) with Helm, and integrates Next.js 15 and tRPC for a type-safe frontend and API layer.",
+          "keyFeatures": [
+            {
+              "category": "Backend",
+              "items": [
+                "Event-driven architecture using Kafka and MongoDB change streams for real-time processing",
+                "Distributed Saga pattern to manage multi-step workflows with retry and compensation logic",
+                "Batch evaluation system with adaptive concurrency for faster throughput",
+                "Cursor-based pagination and optimized aggregation pipelines for scalable queries"
+              ]
+            },
+            {
+              "category": "AI & Data Processing",
+              "items": [
+                "Evaluation engine with dedicated runners for repositories, users, and dependencies",
+                "Integration with Go-based GitGuru service for commit and dependency analysis",
+                "Automated insights including contributor overlaps and adoption metrics",
+                "Cursor-based pagination with O(1) lookup for large datasets"
+              ]
+            },
+            {
+              "category": "Frontend",
+              "items": [
+                "Next.js 15 app with React 19 and tRPC for fully type-safe APIs",
+                "Real-time progress tracking for evaluations and background jobs",
+                "Dashboards with charts, maps, and filtering for contributor and repository analytics",
+                "Modern UI built with Radix UI, Tailwind CSS, and Tiptap editor"
+              ]
+            },
+            {
+              "category": "DevOps",
+              "items": [
+                "12+ microservices deployed on GKE Autopilot with Helm charts",
+                "Kafka scaling with 25 concurrent consumers per topic",
+                "Kubernetes CronJobs for continuous sync of repositories and users",
+                "Automated CI/CD pipelines via CircleCI and NGINX Ingress routing with TLS termination"
+              ]
+            }
+          ],
+          "technicalHighlights": [
+            "Adopted event-driven architecture with Kafka and MongoDB change streams for real-time evaluations",
+            "Implemented distributed Saga pattern with retry and compensation to maintain workflow consistency",
+            "Reduced evaluation time by ~40% using adaptive batching and intelligent concurrency",
+            "Deployed multi-environment infrastructure (dev/staging/prod) on GKE Autopilot with Helm",
+            "Integrated Stripe for billing and NextAuth for OAuth-based authentication"
+          ],
+          "techStack": [
+            "Next.js 15.2.3",
+            "React 19.0.0",
+            "TypeScript 5.7.2",
+            "tRPC 11.0.0-rc.660",
+            "Node.js 18+",
+            "MongoDB 6.17.0",
+            "PostgreSQL",
+            "Kafka",
+            "Go",
+            "Docker",
+            "Kubernetes",
+            "Helm 3.x",
+            "GKE Autopilot",
+            "CircleCI",
+            "Stripe",
+            "Prisma",
+            "NFS",
+            "NGINX Ingress",
+            "Kubernetes CronJobs"
+          ],
+          "metrics": {
+            "scalability": "Runs 12+ microservices with distributed Kafka topics and 25 concurrent consumers per topic",
+            "reliability": "Event-driven workflows ensure near real-time data updates via MongoDB change streams",
+            "performance": "Batch evaluation improved throughput and reduced runtime by approximately 40%"
+          },
+          "links": {
+            "live": "https://drm.openq.dev/",
+            "github": "https://github.com/OpenQDev/"
+          },
+          "images": [
+            "/images/openq-drm-dashboard.png",
+            "/images/openq-drm-architecture.png",
+            "/images/openq-drm-evaluation.png"
+          ]
+        }
+      },
+
+      {
+        "title": "GitHub Scraper",
+        "slug": "github-scraper",
+        "card": {
+          "title": "GitHub Scraper",
+          "shortDescription": "Full-stack app that analyzes GitHub repositories and generates contributor leaderboards through asynchronous processing.",
+          "tags": ["Data", "Backend", "Full Stack", "GitHub API", "Docker"],
+          "technologies": [
+            "Next.js 15",
+            "Fastify",
+            "Prisma",
+            "PostgreSQL",
+            "Redis"
+          ],
+          "image": null,
+          "links": {
+            "live": null,
+            "github": "https://github.com/aalexmrt/github-scraper"
+          }
+        },
+        "modal": {
+          "title": "GitHub Scraper",
+          "subtitle": "Repository Analysis and Leaderboard Generator",
+          "purpose": "GitHub Scraper analyzes commit histories from repositories to generate contributor leaderboards. It helps understand collaboration activity and identify top contributors across public and private projects.",
+          "overview": "Built as a personal project to explore scalable data processing and background job handling. The app processes repositories asynchronously to extract commits, resolve contributor profiles via the GitHub API, and generate leaderboards stored in PostgreSQL. It uses a bare clone strategy for efficiency, integrates caching with Redis, and runs fully on Docker for reproducible environments.",
+          "keyFeatures": [
+            {
+              "category": "Backend",
+              "items": [
+                "Fastify server with REST routes for processing and leaderboard generation",
+                "Bull and Redis for handling asynchronous jobs and background tasks",
+                "Bare repository cloning and incremental fetch strategy to avoid redundant operations",
+                "Prisma ORM for database management and migrations with PostgreSQL"
+              ]
+            },
+            {
+              "category": "Processing",
+              "items": [
+                "In-memory caching and deduplication for contributors",
+                "GitHub API integration with caching for efficient user profile lookups",
+                "Support for both public and private repositories using authentication tokens"
+              ]
+            },
+            {
+              "category": "Frontend",
+              "items": [
+                "Next.js 15 with React 19 for visualizing leaderboard data",
+                "Dynamic status updates for ongoing processing",
+                "Clean and responsive UI with error handling and progress indicators"
+              ]
+            },
+            {
+              "category": "DevOps",
+              "items": [
+                "Containerized setup with Docker and Docker Compose",
+                "Shared Docker network with PostgreSQL and Redis services",
+                "Automatic database migrations using `prisma migrate deploy`",
+                "Persistent volumes for caching repositories and database data"
+              ]
+            }
+          ],
+          "technicalHighlights": [
+            "Implements bare clone and incremental updates to improve performance",
+            "Asynchronous architecture for non-blocking processing and scalability",
+            "Caching with Redis to minimize repeated API calls",
+            "Type-safe data layer with Prisma and PostgreSQL",
+            "Designed for local development and easy container orchestration"
+          ],
+          "metrics": {
+            "performance": "Handles repository analysis asynchronously with background jobs",
+            "efficiency": "Reduces redundant cloning with incremental Git fetches",
+            "scalability": "Supports multiple concurrent jobs through Redis and Bull queues"
+          },
+          "techStack": [
+            "Next.js 15.0.3",
+            "React 19",
+            "TypeScript",
+            "Fastify 5.1.0",
+            "Prisma 5.22.0",
+            "PostgreSQL",
+            "Redis",
+            "Bull 4.16.4",
+            "Docker",
+            "Docker Compose",
+            "simple-git",
+            "Axios"
+          ],
+          "links": {
+            "live": null,
+            "github": "https://github.com/aalexmrt/github-scraper"
+          },
+          "images": [
+            "/images/github-scraper-dashboard.png",
+            "/images/github-scraper-architecture.png",
+            "/images/github-scraper-leaderboard.png"
+          ]
+        }
+      },
+      {
+        "title": "GoGitGuru",
+        "slug": "gogitguru",
+        "card": {
+          "title": "GoGitGuru",
+          "shortDescription": "Go-based backend for large-scale GitHub analysis in the blockchain space. Powers the Ethereum Ecosystem Report.",
+          "tags": ["Backend", "Data", "Go", "Microservices", "Blockchain"],
+          "technologies": [
+            "Go 1.22",
+            "Kafka",
+            "PostgreSQL",
+            "Docker",
+            "GraphQL"
+          ],
+          "image": null,
+          "links": {
+            "live": "https://ethereum-report.vercel.app/",
+            "github": "https://github.com/OpenQDev/"
+          }
+        },
+        "modal": {
+          "title": "GoGitGuru",
+          "subtitle": "Scalable GitHub Intelligence Platform",
+          "purpose": "GoGitGuru is the backend foundation behind OpenQ’s ecosystem. It was designed to collect and process large amounts of GitHub data to understand how developers and projects connect within the blockchain space. It builds a clear picture of developer activity, technical expertise, and project dependencies across multiple ecosystems.",
+          "overview": "The platform is composed of six Go-based microservices — Server API, PublicAPI, RepoSync, UserSync, UserDepSync, and Analytics — each focused on a specific part of the pipeline. The services communicate asynchronously through Kafka, allowing thousands of repositories to be processed concurrently. It parses dependencies in over 13 formats, detects blockchain technologies across more than 150 ecosystems, and stores all processed data in PostgreSQL with read replicas for analytics and reporting.",
+          "keyFeatures": [
+            {
+              "category": "Architecture",
+              "items": [
+                "Six independent Go services for modular scaling and maintenance",
+                "Internal Server API with 80+ REST endpoints",
+                "Public API with token-based authentication for external clients",
+                "Asynchronous communication between services using Kafka producer-consumer model"
+              ]
+            },
+            {
+              "category": "Data Processing",
+              "items": [
+                "Repository cloning and commit extraction system with retry logic",
+                "Dependency parsing covering 13+ formats (npm, pip, go.mod, etc.)",
+                "Blockchain detection system identifying 150+ ecosystems and technologies",
+                "Data ingestion pipelines feeding PostgreSQL with read replicas for analytics"
+              ]
+            },
+            {
+              "category": "Messaging & Scalability",
+              "items": [
+                "Kafka-based event distribution with multiple consumer groups and topics",
+                "At-least-once delivery semantics with offset tracking and retries",
+                "Parallel worker scaling and backpressure control per service",
+                "Independent horizontal scaling for each microservice"
+              ]
+            },
+            {
+              "category": "Analytics",
+              "items": [
+                "Aggregated analytics service for contributors, dependencies, and activity insights",
+                "Developer graph mapping and skill inference across ecosystems",
+                "Advanced reporting using PostgreSQL window functions",
+                "Data consumed by OpenQ DRM, Saya, and other web applications built on top of GitGuru’s datasets"
+              ]
+            }
+          ],
+          "technicalHighlights": [
+            "Developed distributed microservice architecture fully in Go",
+            "Adopted Kafka for asynchronous event-driven communication between services",
+            "Implemented concurrent RepoSync workers to handle repository ingestion at scale",
+            "Created dependency parsing framework supporting 13+ package formats",
+            "Added blockchain recognition logic to detect over 150 technologies and networks"
+          ],
+          "techStack": [
+            "Go 1.22",
+            "Kafka",
+            "PostgreSQL",
+            "Docker",
+            "sqlc",
+            "go-chi/chi",
+            "GraphQL",
+            "GitHub API"
+          ],
+          "metrics": {
+            "scalability": "Six independently deployable services with Kafka consumer scaling",
+            "performance": "Processes thousands of repositories in parallel using concurrent workers",
+            "coverage": "Supports 150+ blockchain ecosystems and 13+ dependency file formats"
+          },
+          "links": {
+            "live": "https://ethereum-report.vercel.app/",
+            "github": "https://github.com/OpenQDev/"
+          },
+          "images": [
+            "/images/gogitguru-architecture.png",
+            "/images/gogitguru-dashboard.png",
+            "/images/gogitguru-pipeline.png"
+          ]
+        }
+      },
+      {
+        "title": "Stackless",
+        "slug": "stackless",
+        "card": {
+          "title": "Stackless",
+          "shortDescription": "Enterprise data platform for managing customer data pipelines with AI-powered insights, Snowflake integration, and modular architecture.",
+          "tags": ["Data", "AI", "Backend", "Cloud", "Enterprise"],
+          "technologies": [
+            "FastAPI",
+            "React 18",
+            "Snowflake",
+            "LangGraph",
+            "AWS Cognito"
+          ],
+          "image": null,
+          "links": {
+            "live": null,
+            "github": "https://github.com/OxWorks/"
+          }
+        },
+        "modal": {
+          "title": "Stackless",
+          "subtitle": "Enterprise Data Platform with AI Insights",
+          "purpose": "Stackless is a data platform built to help organizations manage and analyze customer-specific data ecosystems. It centralizes ingestion, transformation, and visualization through integrated pipelines and AI-driven insights.",
+          "overview": "The platform combines a FastAPI backend and a React 18 frontend with LangGraph-based AI agents capable of natural language analysis. It supports dynamic dbt model generation, multi-tenant deployments, and real-time WebSocket streaming. Stackless connects seamlessly with Snowflake, Fivetran, and GoodData to cover the full data lifecycle from ingestion to analytics, with secure access control using AWS Cognito.",
+          "keyFeatures": [
+            {
+              "category": "Backend",
+              "items": [
+                "FastAPI backend with modular feature-based structure",
+                "Dependency injection container for testable and scalable services",
+                "Service-layer abstraction for clean business logic separation",
+                "SQLAlchemy ORM and Alembic migrations supporting SQLite and Snowflake"
+              ]
+            },
+            {
+              "category": "AI & Analysis",
+              "items": [
+                "LangGraph agent implementing ReAct reasoning and tool execution",
+                "Natural language to SQL translation for analytics",
+                "Persistent conversational memory for contextual queries",
+                "WebSocket streaming for real-time responses and insights"
+              ]
+            },
+            {
+              "category": "Frontend",
+              "items": [
+                "React 18 frontend built with Mantine UI",
+                "Interactive dashboards integrated with GoodData",
+                "Dynamic DApp marketplace for modular extensions",
+                "Authentication and session management with AWS Cognito"
+              ]
+            },
+            {
+              "category": "Data Infrastructure",
+              "items": [
+                "Snowflake integration for analytics and governance",
+                "Fivetran ingestion pipelines for external data sources",
+                "Dynamic dbt model templates for configurable SQL transformations",
+                "RBAC enforcement for multi-tenant and enterprise setups"
+              ]
+            }
+          ],
+          "technicalHighlights": [
+            "Developed a modular FastAPI backend with dependency injection and service layers",
+            "Built a LangGraph-based AI agent capable of reasoning and natural language analysis",
+            "Implemented real-time WebSocket streaming for interactive data insights",
+            "Generated dbt models dynamically from configuration templates",
+            "Integrated Snowflake, Fivetran, and GoodData for complete ETL and analytics workflows"
+          ],
+          "techStack": [
+            "Python 3.12",
+            "FastAPI",
+            "React 18",
+            "TypeScript",
+            "Snowflake",
+            "LangGraph",
+            "dbt",
+            "Fivetran",
+            "AWS Cognito",
+            "SQLAlchemy 2.0",
+            "Alembic",
+            "GoodData",
+            "Docker"
+          ],
+          "metrics": {
+            "performance": "Concurrent job execution with real-time streaming via WebSockets",
+            "scalability": "Multi-tenant architecture with modular backend services",
+            "integration": "Connected with major analytics tools for end-to-end data visibility"
+          },
+          "links": {
+            "live": null,
+            "github": "https://github.com/OxWorks/"
+          },
+          "images": [
+            "/images/stackless-dashboard.png",
+            "/images/stackless-architecture.png",
+            "/images/stackless-agent.png"
+          ]
+        }
+      }
+    ]
+  }
+}
