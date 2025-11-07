@@ -38,9 +38,7 @@ const ContactForm = () => {
       if (!response.ok || !data.success) {
         // Handle API errors
         setSubmitStatus("error");
-        setErrorMessage(
-          data.error || me.contact.form.submit.error
-        );
+        setErrorMessage(data.error || me.contact.form.submit.error);
         setIsSubmitting(false);
         return;
       }
@@ -98,12 +96,12 @@ const ContactForm = () => {
                 <span>{me.social.email}</span>
               </a>
 
-              <div className="flex items-center space-x-4 text-base text-zinc-900 dark:text-white">
+              {/* <div className="flex items-center space-x-4 text-base text-zinc-900 dark:text-white">
                 <div className="p-3 bg-zinc-100 dark:bg-zinc-700 rounded-lg">
                   <MapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <span>{me.contact.location}</span>
-              </div>
+              </div> */}
             </div>
 
             <div className="flex space-x-4 pt-4">

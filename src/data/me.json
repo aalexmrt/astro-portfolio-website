@@ -130,10 +130,10 @@
 
   "contact": {
     "title": "Get In Touch",
-    "subtitle": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+    "subtitle": "Open to collaborations, freelance work, or a quick chat about tech and ideas.",
     "heading": "Let's Connect",
-    "description": "Whether you're looking for a full-stack engineer, need help with AI/ML integration, or want to discuss cloud architecture, I'd love to hear from you.",
-    "location": "Available for remote work worldwide",
+    "description": "If you're looking for a full-stack engineer who works across AI, data, and cloud systems, or just want to share something interesting, feel free to reach out. I usually reply within a day.",
+    "location": null,
     "form": {
       "name": {
         "label": "Name",
@@ -145,12 +145,12 @@
       },
       "message": {
         "label": "Message",
-        "placeholder": "Tell me about your project or just say hello!"
+        "placeholder": "Tell me about your project or just say hi!"
       },
       "submit": {
         "text": "Send Message",
         "sending": "Sending...",
-        "success": "Thank you! Your message has been sent. I'll get back to you soon.",
+        "success": "Thanks for reaching out. I’ll get back to you soon.",
         "error": "Something went wrong. Please try again or email me directly."
       }
     }
