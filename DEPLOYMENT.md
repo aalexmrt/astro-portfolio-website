@@ -35,11 +35,22 @@ Cloudflare will auto-detect Astro, but verify these settings:
 - **Root directory:** `/` (leave as default)
 - **Node version:** `18` or `20` (recommended)
 
-### Step 4: Environment Variables (Optional)
+### Step 4: Environment Variables
 
-If you need any environment variables, add them in the build settings:
-- Click **Environment variables**
-- Add any variables your app needs
+Add your environment variables in the build settings:
+
+**Required for Contact Form:**
+- `RESEND_API_KEY` - Your Resend API key for sending emails
+- `RESEND_FROM_EMAIL` - Your verified sender email (e.g., `noreply@yourdomain.com`)
+- `PUBLIC_TURNSTILE_SITE_KEY` - Your Cloudflare Turnstile site key (public)
+- `TURNSTILE_SECRET_KEY` - Your Cloudflare Turnstile secret key (private)
+
+**How to add:**
+1. Click **Environment variables** in build settings
+2. Click **Add variable** for each one
+3. Set the variable name and value
+4. Make sure `PUBLIC_TURNSTILE_SITE_KEY` is marked as "Public" (available in browser)
+5. Keep `TURNSTILE_SECRET_KEY` and `RESEND_API_KEY` as "Secret" (server-only)
 
 ### Step 5: Deploy
 
