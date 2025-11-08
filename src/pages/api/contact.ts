@@ -1,11 +1,11 @@
-import { Resend } from 'resend';
-import type { APIRoute } from 'astro';
+import { Resend } from "resend";
+import type { APIRoute } from "astro";
 
 // Mark this endpoint as server-rendered (required for API routes)
 export const prerender = false;
 
 // Email configuration
-const TO_EMAIL = 'alexmartinez.mm98@gmail.com';
+const TO_EMAIL = "alexmartinez.mm98@gmail.com";
 
 interface ContactFormData {
   name: string;
@@ -15,39 +15,51 @@ interface ContactFormData {
 
 // Validation helper
 function validateFormData(data: unknown): data is ContactFormData {
-  if (!data || typeof data !== 'object') {
+  if (!data || typeof data !== "object") {
     return false;
   }
 
   const formData = data as Record<string, unknown>;
 
   return (
-    typeof formData.name === 'string' &&
+    typeof formData.name === "string" &&
     formData.name.trim().length > 0 &&
     formData.name.length <= 200 &&
-    typeof formData.email === 'string' &&
+    typeof formData.email === "string" &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
-    typeof formData.message === 'string' &&
+    typeof formData.message === "string" &&
     formData.message.trim().length > 0 &&
     formData.message.length <= 5000
   );
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   try {
+    const runtimeEnv =
+      (locals as { runtime?: { env?: Record<string, string | undefined> } })
+        ?.runtime?.env ?? {};
+    const importMetaEnv = import.meta.env as Record<string, string | undefined>;
+    const nodeEnv =
+      typeof process !== "undefined"
+        ? (process.env as Record<string, string | undefined>)
+        : {};
+
     // Check if API key is configured
-    const apiKey = import.meta.env.RESEND_API_KEY;
+    const apiKey =
+      runtimeEnv.RESEND_API_KEY ??
+      importMetaEnv.RESEND_API_KEY ??
+      nodeEnv.RESEND_API_KEY;
     if (!apiKey) {
-      console.error('RESEND_API_KEY is not configured');
+      console.error("RESEND_API_KEY is not configured");
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Server configuration error. Please try again later.',
+          error: "Server configuration error. Please try again later.",
         }),
         {
           status: 500,
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
@@ -55,7 +67,11 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Initialize Resend client inside the handler
     const resend = new Resend(apiKey);
-    const fromEmail = import.meta.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+    const fromEmail =
+      runtimeEnv.RESEND_FROM_EMAIL ??
+      importMetaEnv.RESEND_FROM_EMAIL ??
+      nodeEnv.RESEND_FROM_EMAIL ??
+      "onboarding@resend.dev";
 
     // Parse request body with error handling
     let body;
@@ -65,28 +81,28 @@ export const POST: APIRoute = async ({ request }) => {
         return new Response(
           JSON.stringify({
             success: false,
-            error: 'Request body is empty. Please fill out the form.',
+            error: "Request body is empty. Please fill out the form.",
           }),
           {
             status: 400,
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
           }
         );
       }
       body = JSON.parse(text);
     } catch (parseError) {
-      console.error('JSON parse error:', parseError);
+      console.error("JSON parse error:", parseError);
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Invalid request format. Please try again.',
+          error: "Invalid request format. Please try again.",
         }),
         {
           status: 400,
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
@@ -97,12 +113,12 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Invalid form data. Please check your inputs and try again.',
+          error: "Invalid form data. Please check your inputs and try again.",
         }),
         {
           status: 400,
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
@@ -124,17 +140,23 @@ export const POST: APIRoute = async ({ request }) => {
           
           <div style="margin-top: 20px;">
             <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-            <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
+            <p><strong>Email:</strong> <a href="mailto:${escapeHtml(
+              email
+            )}">${escapeHtml(email)}</a></p>
           </div>
           
           <div style="margin-top: 30px; padding: 15px; background-color: #f3f4f6; border-radius: 5px;">
             <p><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap; margin-top: 10px;">${escapeHtml(message)}</p>
+            <p style="white-space: pre-wrap; margin-top: 10px;">${escapeHtml(
+              message
+            )}</p>
           </div>
           
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 12px;">
             <p>This message was sent from your portfolio contact form.</p>
-            <p>Reply directly to this email to respond to ${escapeHtml(name)}.</p>
+            <p>Reply directly to this email to respond to ${escapeHtml(
+              name
+            )}.</p>
           </div>
         </div>
       `,
@@ -155,16 +177,16 @@ Reply directly to this email to respond to ${name}.
 
     // Handle Resend API errors
     if (error) {
-      console.error('Resend API error:', error);
+      console.error("Resend API error:", error);
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Failed to send message. Please try again later.',
+          error: "Failed to send message. Please try again later.",
         }),
         {
           status: 500,
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
@@ -174,34 +196,35 @@ Reply directly to this email to respond to ${name}.
     return new Response(
       JSON.stringify({
         success: true,
-        message: 'Message sent successfully!',
+        message: "Message sent successfully!",
         id: data?.id,
       }),
       {
         status: 200,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       }
     );
   } catch (error) {
     // Handle unexpected errors
-    console.error('Unexpected error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    console.error("Unexpected error:", error);
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
     const errorStack = error instanceof Error ? error.stack : undefined;
-    console.error('Error details:', { errorMessage, errorStack });
-    
+    console.error("Error details:", { errorMessage, errorStack });
+
     return new Response(
       JSON.stringify({
         success: false,
-        error: 'An unexpected error occurred. Please try again later.',
+        error: "An unexpected error occurred. Please try again later.",
         // Include error details in development
         ...(import.meta.env.DEV && { details: errorMessage }),
       }),
       {
         status: 500,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       }
     );
@@ -211,12 +234,11 @@ Reply directly to this email to respond to ${name}.
 // Helper function to escape HTML to prevent XSS
 function escapeHtml(text: string): string {
   const map: Record<string, string> = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;",
   };
   return text.replace(/[&<>"']/g, (m) => map[m]);
 }
-
