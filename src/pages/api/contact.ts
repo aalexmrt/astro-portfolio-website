@@ -125,35 +125,58 @@ export const POST: APIRoute = async ({ request, locals }) => {
       );
     }
 
-    // Verify Turnstile token
-    const turnstileSecret =
-      runtimeEnv.TURNSTILE_SECRET_KEY ??
-      importMetaEnv.TURNSTILE_SECRET_KEY ??
-      nodeEnv.TURNSTILE_SECRET_KEY;
+    // Verify Turnstile token (skip in development mode)
+    const isDevelopment = import.meta.env.DEV;
 
-    if (turnstileSecret && body.turnstileToken) {
-      const turnstileResponse = await fetch(
-        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            secret: turnstileSecret,
-            response: body.turnstileToken,
-          }),
+    if (!isDevelopment) {
+      const turnstileSecret =
+        runtimeEnv.TURNSTILE_SECRET_KEY ??
+        importMetaEnv.TURNSTILE_SECRET_KEY ??
+        nodeEnv.TURNSTILE_SECRET_KEY;
+
+      if (turnstileSecret && body.turnstileToken) {
+        // Skip verification for development bypass token
+        if (body.turnstileToken === "dev-mode-bypass") {
+          console.warn("Turnstile bypassed in development mode");
+        } else {
+          const turnstileResponse = await fetch(
+            "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                secret: turnstileSecret,
+                response: body.turnstileToken,
+              }),
+            }
+          );
+
+          const turnstileData = await turnstileResponse.json();
+
+          if (!turnstileData.success) {
+            console.error("Turnstile verification failed:", turnstileData);
+            return new Response(
+              JSON.stringify({
+                success: false,
+                error: "Security verification failed. Please try again.",
+              }),
+              {
+                status: 400,
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+          }
         }
-      );
-
-      const turnstileData = await turnstileResponse.json();
-
-      if (!turnstileData.success) {
-        console.error("Turnstile verification failed:", turnstileData);
+      } else if (!body.turnstileToken) {
+        // If Turnstile is configured but no token provided
         return new Response(
           JSON.stringify({
             success: false,
-            error: "Security verification failed. Please try again.",
+            error: "Security verification is required. Please try again.",
           }),
           {
             status: 400,
@@ -163,20 +186,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
           }
         );
       }
-    } else if (!body.turnstileToken) {
-      // If Turnstile is configured but no token provided
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: "Security verification is required. Please try again.",
-        }),
-        {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+    } else {
+      // In development, log that Turnstile is bypassed
+      console.log("Turnstile verification skipped in development mode");
     }
 
     const { name, email, message } = body;

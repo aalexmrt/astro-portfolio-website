@@ -38,10 +38,16 @@ const ContactForm = () => {
   const turnstileWidgetId = useRef<string | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // Check if we're in development mode
+  const isDevelopment = import.meta.env.DEV;
+
   // Get Turnstile site key from environment or use a placeholder
   // In production, this should be set as an environment variable
+  // Turnstile is disabled in development to avoid domain validation issues
   const TURNSTILE_SITE_KEY =
-    import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
+    !isDevelopment && import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
+      ? import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
+      : null;
 
   // Detect dark mode
   useEffect(() => {
@@ -57,8 +63,15 @@ const ContactForm = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Initialize Turnstile widget
+  // Initialize Turnstile widget (only in production)
   useEffect(() => {
+    // Skip Turnstile in development mode
+    if (isDevelopment || !TURNSTILE_SITE_KEY) {
+      // In development, automatically set a mock token so form submission works
+      setTurnstileToken("dev-mode-bypass");
+      return;
+    }
+
     const initTurnstile = () => {
       if (
         turnstileRef.current &&
@@ -112,7 +125,7 @@ const ContactForm = () => {
       if (checkInterval) clearInterval(checkInterval);
       if (timeoutId) clearTimeout(timeoutId);
     };
-  }, [TURNSTILE_SITE_KEY, isDarkMode]);
+  }, [TURNSTILE_SITE_KEY, isDarkMode, isDevelopment]);
 
   // Reset Turnstile widget
   const resetTurnstile = () => {
@@ -128,8 +141,8 @@ const ContactForm = () => {
     setSubmitStatus("idle");
     setErrorMessage("");
 
-    // Check if Turnstile token is present
-    if (!turnstileToken) {
+    // Check if Turnstile token is present (skip in development)
+    if (!isDevelopment && !turnstileToken) {
       setSubmitStatus("error");
       setErrorMessage("Please complete the security verification.");
       setIsSubmitting(false);
@@ -305,10 +318,12 @@ const ContactForm = () => {
               />
             </div>
 
-            {/* Cloudflare Turnstile Widget */}
-            <div className="flex justify-center">
-              <div ref={turnstileRef} id="turnstile-widget"></div>
-            </div>
+            {/* Cloudflare Turnstile Widget (only shown in production) */}
+            {!isDevelopment && TURNSTILE_SITE_KEY && (
+              <div className="flex justify-center">
+                <div ref={turnstileRef} id="turnstile-widget"></div>
+              </div>
+            )}
 
             <button
               type="submit"
