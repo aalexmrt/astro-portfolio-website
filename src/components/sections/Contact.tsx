@@ -1,6 +1,26 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Send, Mail, Linkedin, Github, MapPin } from "lucide-react";
 import me from "../../data/me.json";
+
+// Declare Turnstile types
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        element: HTMLElement | string,
+        options: {
+          sitekey: string;
+          callback?: (token: string) => void;
+          "error-callback"?: () => void;
+          "expired-callback"?: () => void;
+          theme?: "light" | "dark" | "auto";
+        }
+      ) => string;
+      reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
+    };
+  }
+}
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -13,12 +33,108 @@ const ContactForm = () => {
     "idle" | "success" | "error"
   >("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Get Turnstile site key from environment or use a placeholder
+  // In production, this should be set as an environment variable
+  const TURNSTILE_SITE_KEY =
+    import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
+
+  // Detect dark mode
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    };
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  // Initialize Turnstile widget
+  useEffect(() => {
+    const initTurnstile = () => {
+      if (
+        turnstileRef.current &&
+        window.turnstile &&
+        !turnstileWidgetId.current
+      ) {
+        try {
+          const widgetId = window.turnstile.render(turnstileRef.current, {
+            sitekey: TURNSTILE_SITE_KEY,
+            callback: (token: string) => {
+              setTurnstileToken(token);
+            },
+            "error-callback": () => {
+              setTurnstileToken("");
+              setErrorMessage("CAPTCHA verification failed. Please try again.");
+            },
+            "expired-callback": () => {
+              setTurnstileToken("");
+            },
+            theme: isDarkMode ? "dark" : "light",
+          });
+          turnstileWidgetId.current = widgetId;
+        } catch (error) {
+          console.error("Turnstile initialization error:", error);
+        }
+      }
+    };
+
+    let checkInterval: NodeJS.Timeout | null = null;
+    let timeoutId: NodeJS.Timeout | null = null;
+
+    // Check if Turnstile is already loaded
+    if (window.turnstile) {
+      initTurnstile();
+    } else {
+      // Wait for Turnstile script to load
+      checkInterval = setInterval(() => {
+        if (window.turnstile) {
+          if (checkInterval) clearInterval(checkInterval);
+          initTurnstile();
+        }
+      }, 100);
+
+      // Cleanup interval after 10 seconds
+      timeoutId = setTimeout(() => {
+        if (checkInterval) clearInterval(checkInterval);
+      }, 10000);
+    }
+
+    return () => {
+      if (checkInterval) clearInterval(checkInterval);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [TURNSTILE_SITE_KEY, isDarkMode]);
+
+  // Reset Turnstile widget
+  const resetTurnstile = () => {
+    if (turnstileWidgetId.current && window.turnstile) {
+      window.turnstile.reset(turnstileWidgetId.current);
+      setTurnstileToken("");
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
     setErrorMessage("");
+
+    // Check if Turnstile token is present
+    if (!turnstileToken) {
+      setSubmitStatus("error");
+      setErrorMessage("Please complete the security verification.");
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/contact", {
@@ -30,6 +146,7 @@ const ContactForm = () => {
           name: formData.name.trim(),
           email: formData.email.trim(),
           message: formData.message.trim(),
+          turnstileToken: turnstileToken,
         }),
       });
 
@@ -40,6 +157,7 @@ const ContactForm = () => {
         setSubmitStatus("error");
         setErrorMessage(data.error || me.contact.form.submit.error);
         setIsSubmitting(false);
+        resetTurnstile();
         return;
       }
 
@@ -47,6 +165,7 @@ const ContactForm = () => {
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
       setIsSubmitting(false);
+      resetTurnstile();
 
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -58,6 +177,7 @@ const ContactForm = () => {
       setSubmitStatus("error");
       setErrorMessage(me.contact.form.submit.error);
       setIsSubmitting(false);
+      resetTurnstile();
     }
   };
 
@@ -183,6 +303,11 @@ const ContactForm = () => {
                 className="w-full px-4 py-3 bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 transition-colors text-zinc-900 dark:text-white resize-none"
                 placeholder={me.contact.form.message.placeholder}
               />
+            </div>
+
+            {/* Cloudflare Turnstile Widget */}
+            <div className="flex justify-center">
+              <div ref={turnstileRef} id="turnstile-widget"></div>
             </div>
 
             <button

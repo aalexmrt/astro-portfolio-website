@@ -11,6 +11,7 @@ interface ContactFormData {
   name: string;
   email: string;
   message: string;
+  turnstileToken?: string;
 }
 
 // Validation helper
@@ -114,6 +115,60 @@ export const POST: APIRoute = async ({ request, locals }) => {
         JSON.stringify({
           success: false,
           error: "Invalid form data. Please check your inputs and try again.",
+        }),
+        {
+          status: 400,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    }
+
+    // Verify Turnstile token
+    const turnstileSecret =
+      runtimeEnv.TURNSTILE_SECRET_KEY ??
+      importMetaEnv.TURNSTILE_SECRET_KEY ??
+      nodeEnv.TURNSTILE_SECRET_KEY;
+
+    if (turnstileSecret && body.turnstileToken) {
+      const turnstileResponse = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            secret: turnstileSecret,
+            response: body.turnstileToken,
+          }),
+        }
+      );
+
+      const turnstileData = await turnstileResponse.json();
+
+      if (!turnstileData.success) {
+        console.error("Turnstile verification failed:", turnstileData);
+        return new Response(
+          JSON.stringify({
+            success: false,
+            error: "Security verification failed. Please try again.",
+          }),
+          {
+            status: 400,
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+      }
+    } else if (!body.turnstileToken) {
+      // If Turnstile is configured but no token provided
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: "Security verification is required. Please try again.",
         }),
         {
           status: 400,
