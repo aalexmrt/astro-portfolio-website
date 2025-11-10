@@ -473,7 +473,7 @@
         "slug": "github-scraper",
         "card": {
           "title": "GitHub Scraper",
-          "shortDescription": "Full-stack app that analyzes GitHub repositories and generates contributor leaderboards through asynchronous processing.",
+          "shortDescription": "Full-stack app that analyzes GitHub repositories and generates contributor leaderboards with asynchronous processing, caching, and Docker-based architecture.",
           "tags": ["Data", "Backend", "Full Stack", "GitHub API", "Docker"],
           "technologies": [
             "Next.js 15",
@@ -490,73 +490,81 @@
         },
         "modal": {
           "title": "GitHub Scraper",
-          "subtitle": "Repository Analysis and Leaderboard Generator",
-          "purpose": "GitHub Scraper analyzes commit histories from repositories to generate contributor leaderboards. It helps understand collaboration activity and identify top contributors across public and private projects.",
-          "overview": "Built as a personal project to explore scalable data processing and background job handling. The app processes repositories asynchronously to extract commits, resolve contributor profiles via the GitHub API, and generate leaderboards stored in PostgreSQL. It uses a bare clone strategy for efficiency, integrates caching with Redis, and runs fully on Docker for reproducible environments.",
+          "purpose": "The GitHub Scraper is a full-stack application designed to analyze repository commit histories and generate contributor leaderboards. It helps identify top contributors, process large repositories efficiently, and manage asynchronous workloads with full transparency.",
+          "overview": "The platform combines a Fastify backend with a modern Next.js 15 frontend to handle repository submission, processing, and visualization. It supports both public and private repositories, uses Bull queues with Redis for background job execution, and caches contributor data to optimize API usage and performance. The system leverages PostgreSQL with Prisma ORM for persistence and Docker Compose for orchestration across all services, ensuring scalability and reproducibility in local and cloud environments.",
           "keyFeatures": [
             {
               "category": "Backend",
               "items": [
-                "Fastify server with REST routes for processing and leaderboard generation",
-                "Bull and Redis for handling asynchronous jobs and background tasks",
-                "Bare repository cloning and incremental fetch strategy to avoid redundant operations",
-                "Prisma ORM for database management and migrations with PostgreSQL"
-              ]
-            },
-            {
-              "category": "Processing",
-              "items": [
-                "In-memory caching and deduplication for contributors",
-                "GitHub API integration with caching for efficient user profile lookups",
-                "Support for both public and private repositories using authentication tokens"
+                "Fastify 5 API with modular route and service-layer structure",
+                "Bull queue system with Redis for asynchronous repository processing",
+                "Bare repository cloning and incremental updates via simple-git",
+                "Prisma ORM with PostgreSQL for relational storage and migrations",
+                "GitHub API integration for contributor resolution with caching and rate-limit handling"
               ]
             },
             {
               "category": "Frontend",
               "items": [
-                "Next.js 15 with React 19 for visualizing leaderboard data",
-                "Dynamic status updates for ongoing processing",
-                "Clean and responsive UI with error handling and progress indicators"
+                "Next.js 15 frontend with React 19 and TypeScript",
+                "Responsive interface with Tailwind CSS and Radix UI components",
+                "Real-time repository status updates using React Query polling",
+                "Leaderboard view with contributor details and GitHub profile links",
+                "Dark mode, error states, and skeleton loading for smooth UX"
               ]
             },
             {
-              "category": "DevOps",
+              "category": "Infrastructure",
               "items": [
-                "Containerized setup with Docker and Docker Compose",
-                "Shared Docker network with PostgreSQL and Redis services",
-                "Automatic database migrations using `prisma migrate deploy`",
-                "Persistent volumes for caching repositories and database data"
+                "Docker Compose environment with backend, frontend, Redis, PostgreSQL, and worker containers",
+                "Persistent storage for repositories and database volumes",
+                "Multi-platform deployment support for Vercel, GCP Cloud Run, and OCI Kubernetes",
+                "Cloudflare R2 and AWS S3 adapters for scalable repository storage",
+                "Automated migrations and environment-based configuration management"
+              ]
+            },
+            {
+              "category": "Architecture & Patterns",
+              "items": [
+                "Producer-consumer pattern for job orchestration and scalability",
+                "State machine pattern for deterministic repository states",
+                "Factory pattern for environment-aware storage adapters",
+                "Strategy pattern for repository cloning and contributor processing",
+                "Multi-layer caching (in-memory, PostgreSQL, Redis, and frontend React Query)"
               ]
             }
           ],
           "technicalHighlights": [
-            "Implements bare clone and incremental updates to improve performance",
-            "Asynchronous architecture for non-blocking processing and scalability",
-            "Caching with Redis to minimize repeated API calls",
-            "Type-safe data layer with Prisma and PostgreSQL",
-            "Designed for local development and easy container orchestration"
+            "Implemented asynchronous job processing with Bull queues and Redis to handle large repositories efficiently",
+            "Developed a Fastify backend with service-layer abstraction and Prisma integration",
+            "Optimized contributor resolution with caching and GitHub API rate-limit management",
+            "Designed a clean, reactive UI with React Query and polling for real-time updates",
+            "Containerized the entire system using Docker Compose for consistent development and deployment"
+          ],
+          "techStack": [
+            "Node.js 20",
+            "Fastify 5.1.0",
+            "Next.js 15.0.3",
+            "React 19 (RC)",
+            "TypeScript 5.6",
+            "Prisma 5.22.0",
+            "PostgreSQL 15",
+            "Redis 6",
+            "Bull 4.16.4",
+            "simple-git 3.27.0",
+            "Axios",
+            "Tailwind CSS 3.4",
+            "Radix UI",
+            "Docker",
+            "Cloudflare R2"
           ],
           "metrics": {
-            "performance": "Handles repository analysis asynchronously with background jobs",
-            "efficiency": "Reduces redundant cloning with incremental Git fetches",
-            "scalability": "Supports multiple concurrent jobs through Redis and Bull queues"
+            "performance": "Processes repositories up to 250MB with thousands of commits using concurrent workers",
+            "scalability": "Horizontal scaling via independent commit and user worker containers",
+            "integration": "Seamless integration with GitHub API, PostgreSQL, and Redis-backed queue system"
           },
-          "techStack": [
-            "Next.js 15.0.3",
-            "React 19",
-            "TypeScript",
-            "Fastify 5.1.0",
-            "Prisma 5.22.0",
-            "PostgreSQL",
-            "Redis",
-            "Bull 4.16.4",
-            "Docker",
-            "Docker Compose",
-            "simple-git",
-            "Axios"
-          ],
           "links": {
-            "live": null,
+            "live": "https://github-scraper-psi.vercel.app/",
             "github": "https://github.com/aalexmrt/github-scraper"
           },
           "images": [
@@ -566,6 +574,7 @@
           ]
         }
       },
+
       {
         "title": "GoGitGuru",
         "slug": "gogitguru",
