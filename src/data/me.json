@@ -42,27 +42,26 @@
         "duration": "+1 year",
         "location": "Germany (Remote)",
         "description": [
-          "Built and scaled developer analytics platforms powering the Ethereum Ecosystem Reports and other ecosystem analyses, while also leading development of AI-driven systems within the company's product suite.",
-          "Built and maintained OpenQ DRM and GoGitGuru, processing large-scale GitHub data to evaluate developer activity and ecosystem health.",
-          "Improved event-driven data pipelines and Kafka topic design, enabling concurrent processing of thousands of repositories and reducing ingestion latency.",
-          "Developed synchronization and evaluation systems in Go and TypeScript to keep GitHub data consistent between MongoDB and PostgreSQL.",
-          "Built Saya, an AI platform that converts natural language queries into SQL for developer discovery, and Geist AI, an on-device multi-agent chat system focused on privacy and fast local inference.",
-          "Automated multi-environment deployments using Helm and GitHub Actions, deploying services across GKE and AWS for scalability and reliability."
+          "Built and scaled developer analytics platforms that process large-scale GitHub data to generate actionable insights, improving visibility into technology adoption and enabling data-driven decisions.",
+          "Redesigned event-driven data pipelines and Kafka topics to handle concurrent ingestion of high-volume repositories, reducing latency and improving throughput across distributed services.",
+          "Implemented synchronization and evaluation systems in Go and TypeScript to ensure consistent and reliable GitHub data across MongoDB and PostgreSQL databases.",
+          "Developed AI systems for natural-language analytics, enhancing product capabilities in intelligent querying and real-time reasoning while maintaining privacy and performance.",
+          "Automated multi-environment deployments with Helm and GitHub Actions, deploying services across GKE and AWS for scalable, reliable releases across production and staging environments."
         ],
         "technologies": [
-          "Go",
           "TypeScript",
+          "Go",
           "Next.js",
+          "tRPC",
+          "React Query",
+          "Node.js",
           "Kafka",
           "PostgreSQL",
           "MongoDB",
-          "Kubernetes",
-          "Docker",
-          "tRPC",
           "Prisma",
+          "Docker",
           "Helm",
-          "AWS",
-          "CircleCI"
+          "Kubernetes"
         ]
       },
       {
