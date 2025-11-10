@@ -40,13 +40,14 @@
         "role": "Full Stack AI Engineer",
         "period": "Nov 2024 – Present",
         "duration": "+1 year",
-        "location": "Germany (remote)",
+        "location": "Germany (Remote)",
         "description": [
-          "Built and maintained OpenQ DRM and GoGitGuru, powering the Ethereum Ecosystem Report with large-scale GitHub data processing.",
-          "Improved data pipelines and Kafka topic design, enabling concurrent processing of thousands of repositories and reducing ingestion latency.",
-          "Developed evaluation and synchronization systems across Go and TypeScript services to keep GitHub data consistent between MongoDB and PostgreSQL.",
-          "Worked on Saya, an AI platform that converts natural language queries into SQL for GitHub developer discovery, and Geist AI, an on-device multi-agent chat system focused on privacy and speed.",
-          "Automated Helm-based deployments and CI/CD workflows with GitHub Actions to ensure reliable multi-environment releases on GKE."
+          "Built and scaled developer analytics platforms powering the Ethereum Ecosystem Reports and other ecosystem analyses, while also leading development of AI-driven systems within the company's product suite.",
+          "Built and maintained OpenQ DRM and GoGitGuru, processing large-scale GitHub data to evaluate developer activity and ecosystem health.",
+          "Improved event-driven data pipelines and Kafka topic design, enabling concurrent processing of thousands of repositories and reducing ingestion latency.",
+          "Developed synchronization and evaluation systems in Go and TypeScript to keep GitHub data consistent between MongoDB and PostgreSQL.",
+          "Built Saya, an AI platform that converts natural language queries into SQL for developer discovery, and Geist AI, an on-device multi-agent chat system focused on privacy and fast local inference.",
+          "Automated multi-environment deployments using Helm and GitHub Actions, deploying services across GKE and AWS for scalability and reliability."
         ],
         "technologies": [
           "Go",
@@ -60,6 +61,7 @@
           "tRPC",
           "Prisma",
           "Helm",
+          "AWS",
           "CircleCI"
         ]
       },
@@ -68,26 +70,31 @@
         "role": "Full Stack Engineer",
         "period": "Oct 2023 – Oct 2024",
         "duration": "+1 year",
-        "location": "San Francisco, CA, US (remote)",
+        "location": "San Francisco, CA (Remote)",
         "description": [
-          "Contributed to Stackless, a data platform connecting Fivetran, Snowflake, and GoodData for automated analytics pipelines.",
-          "Developed onboarding flows and backend integrations that simplified client setup and reduced manual configuration time.",
-          "Built React-based dashboards with Strapi CMS and Node services, integrating and embedding GoodData BI dashboards for advanced data visualization.",
-          "Improved page performance and responsiveness by implementing chunked pagination and optimizing data fetching."
+          "Built core features for Stackless, an enterprise data platform that connects Fivetran, Snowflake, and GoodData to deliver automated analytics pipelines and AI-powered insights.",
+          "Developed the onboarding flow and backend integrations that simplified client setup and configuration, reducing manual work for new tenants.",
+          "Built React dashboards integrated with Strapi CMS and GoodData, providing real-time visualizations and self-serve analytics for enterprise customers.",
+          "Implemented modular backend services in FastAPI, connecting to Snowflake and Fivetran pipelines with secure AWS Cognito authentication.",
+          "Helped design the platform's multi-tenant architecture, with support for dbt model generation and WebSocket-based real-time updates.",
+          "Improved overall performance and responsiveness through chunked pagination, optimized API calls, and Dockerized local development environments."
         ],
         "technologies": [
+          "FastAPI",
           "React",
           "TypeScript",
           "Node",
           "Express",
           "Strapi",
           "Docker",
-          "AWS",
           "Snowflake",
+          "Fivetran",
           "BigQuery",
           "Prefect",
           "PostgreSQL",
-          "GoodData"
+          "GoodData",
+          "AWS Cognito",
+          "dbt"
         ]
       },
       {
@@ -97,19 +104,18 @@
         "duration": "+3 years",
         "location": "Remote",
         "description": [
-          "Occasionally helped startups with maintenance work and small integrations, focusing on frontend development, API connections, and cloud setup for existing projects."
+          "Worked with startups and open-source teams to design, develop, and deploy full-stack applications with a focus on clean architecture, scalability, and maintainability.",
+          "Handled everything from backend APIs and frontend interfaces to cloud deployments and Dockerized environments across AWS, GCP, and Vercel."
         ],
         "technologies": [
           "React",
           "Next.js",
           "TypeScript",
           "Node",
-          "Express",
+          "Fastify",
           "Docker",
           "PostgreSQL",
-          "MongoDB",
-          "AWS",
-          "Vercel"
+          "MongoDB"
         ]
       },
       {
@@ -119,9 +125,10 @@
         "duration": "+3 years",
         "location": "Barcelona, Spain",
         "description": [
-          "Improved robot validation tools written in Python, increasing testing accuracy and reliability.",
-          "Reduced ISO image generation time by 20% by optimizing build pipelines with Bash and Docker.",
-          "Migrated the codebase to Python 3 and integrated CI/CD workflows using GitHub and Jenkins for faster and more consistent delivery."
+          "Developed and maintained internal automation tools and build pipelines for humanoid and service robots, improving reliability and delivery speed across validation workflows.",
+          "Enhanced robot validation tools in Python, increasing testing accuracy and reducing failure rates.",
+          "Optimized ISO image generation pipelines with Docker and Bash, cutting build time by 20%.",
+          "Migrated legacy systems to Python 3 and implemented GitHub CI/CD and Jenkins pipelines for consistent, automated deployments."
         ],
         "technologies": ["Python", "Docker", "Jenkins", "GitHub CI/CD", "Bash"]
       }
