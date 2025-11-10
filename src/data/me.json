@@ -1,7 +1,7 @@
 {
   "name": "Alex Martinez",
-  "title": "Full-Stack Engineer building AI systems, Developer Tools, and Data Platforms",
-  "tagline": "I build scalable systems and AI-driven products that turn complex data into simple, meaningful tools for developers and teams.",
+  "title": "Full-Stack Engineer • AI Systems • Data Platforms",
+  "tagline": "I design and build scalable systems that turn complex data into meaningful tools for developers and organizations.",
   "social": {
     "github": "https://github.com/aalexmrt",
     "linkedin": "https://www.linkedin.com/in/alexmartinez598/",
@@ -9,8 +9,8 @@
   },
   "hero": {
     "name": "Alex Martinez",
-    "title": "Full-Stack Engineer building AI systems, Developer Tools, and Data Platforms",
-    "tagline": "I build scalable systems and AI-driven products that turn complex data into simple, meaningful tools for developers and teams.",
+    "title": "Full-Stack Engineer • AI Systems • Data Platforms",
+    "tagline": "I design and build scalable systems that turn complex data into meaningful tools for developers and organizations.",
     "cta": {
       "primary": {
         "text": "View My Work",
@@ -26,9 +26,9 @@
   "about": {
     "title": "About Me",
     "bio": [
-      "I'm a full-stack engineer who enjoys building intelligent systems that combine data, AI, and modern web technologies.",
-      "My work focuses on analytics platforms and AI-powered products, from developer insight tools like OpenQ DRM and GoGitGuru to conversational and on-device AI systems such as Saya and Geist AI.",
-      "I like designing scalable backend architectures, building frontend dashboards, and delivering reliable solutions that make an impact."
+      "I'm a full-stack engineer passionate about building systems that connect data, AI, and modern web technologies.",
+      "My work ranges from developer analytics platforms like OpenQ DRM and GoGitGuru to AI-powered applications such as Saya and Geist AI.",
+      "I enjoy designing clean backend architectures, intuitive frontends, and delivering reliable, production-ready solutions."
     ]
   },
 
