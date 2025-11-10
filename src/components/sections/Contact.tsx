@@ -207,57 +207,56 @@ const ContactForm = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-zinc-900 dark:text-white">
-                {me.contact.heading}
-              </h3>
-              <p className="text-base text-zinc-900 dark:text-white mb-6 leading-relaxed">
-                {me.contact.description}
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <a
-                href={`mailto:${me.social.email}`}
-                className="flex items-center space-x-4 text-base text-zinc-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-              >
-                <div className="p-3 bg-zinc-100 dark:bg-zinc-700 rounded-lg">
-                  <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+        <div className="grid md:grid-cols-5 gap-8">
+          {/* Left Card - Contact Info (40% width) */}
+          <div className="md:col-span-2">
+            <div className="p-8 bg-gradient-to-br from-indigo-50/50 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-indigo-400/20 md:sticky md:top-8">
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-bold mb-4 text-zinc-900 dark:text-white">
+                    {me.contact.heading}
+                  </h3>
+                  <p className="text-base text-zinc-900 dark:text-white mb-6 leading-relaxed">
+                    {me.contact.description}
+                  </p>
                 </div>
-                <span>{me.social.email}</span>
-              </a>
 
-              {/* <div className="flex items-center space-x-4 text-base text-zinc-900 dark:text-white">
-                <div className="p-3 bg-zinc-100 dark:bg-zinc-700 rounded-lg">
-                  <MapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                {/* Contact Methods - Vertical Stack */}
+                <div className="space-y-3">
+                  <a
+                    href={`mailto:${me.social.email}`}
+                    className="flex items-center gap-4 p-4 bg-white dark:bg-zinc-700 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/30 border border-zinc-200 dark:border-zinc-600 hover:border-indigo-400 dark:hover:border-indigo-500 transition-all hover:scale-[1.02] active:scale-95 group"
+                  >
+                    <div className="p-2.5 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors">
+                      <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-zinc-900 dark:text-white">Email</p>
+                      <p className="text-xs text-zinc-600 dark:text-zinc-400 truncate">{me.social.email}</p>
+                    </div>
+                  </a>
+
+                  <a
+                    href={me.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 bg-white dark:bg-zinc-700 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/30 border border-zinc-200 dark:border-zinc-600 hover:border-indigo-400 dark:hover:border-indigo-500 transition-all hover:scale-[1.02] active:scale-95 group"
+                  >
+                    <div className="p-2.5 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors">
+                      <Linkedin className="w-5 h-5 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-zinc-900 dark:text-white">LinkedIn</p>
+                      <p className="text-xs text-zinc-600 dark:text-zinc-400">Connect with me</p>
+                    </div>
+                  </a>
                 </div>
-                <span>{me.contact.location}</span>
-              </div> */}
-            </div>
-
-            <div className="flex space-x-4 pt-4">
-              <a
-                href={me.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-zinc-100 dark:bg-zinc-700 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors"
-              >
-                <Github className="w-6 h-6 text-zinc-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400" />
-              </a>
-              <a
-                href={me.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-zinc-100 dark:bg-zinc-700 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors"
-              >
-                <Linkedin className="w-6 h-6 text-zinc-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400" />
-              </a>
+              </div>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Right Card - Contact Form (60% width) */}
+          <form onSubmit={handleSubmit} className="md:col-span-3 p-8 bg-white dark:bg-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-indigo-400/20 space-y-6">
             <div>
               <label
                 htmlFor="name"

@@ -127,13 +127,25 @@
       }
     ]
   },
-
   "contact": {
     "title": "Get In Touch",
-    "subtitle": "Open to collaborations, freelance work, or a quick chat about tech and ideas.",
+    "subtitle": "Open to collaborations, freelance projects, or simply a good chat about tech and ideas.",
     "heading": "Let's Connect",
-    "description": "If you're looking for a full-stack engineer who works across AI, data, and cloud systems, or just want to share something interesting, feel free to reach out. I usually reply within a day.",
-    "location": null,
+    "description": "If you'd like to discuss a project, collaborate, or just share something interesting, feel free to reach out. I usually respond within a day.",
+    "links": [
+      {
+        "label": "Email",
+        "url": "mailto:alexmartinez.mm98@gmail.com"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/alexmartinez598/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/aalexmrt"
+      }
+    ],
     "form": {
       "name": {
         "label": "Name",
@@ -150,7 +162,7 @@
       "submit": {
         "text": "Send Message",
         "sending": "Sending...",
-        "success": "Thanks for reaching out. I’ll get back to you soon.",
+        "success": "Thanks for reaching out — I’ll get back to you soon.",
         "error": "Something went wrong. Please try again or email me directly."
       }
     }
