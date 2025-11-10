@@ -484,7 +484,7 @@
           ],
           "image": null,
           "links": {
-            "live": null,
+            "live": "https://github-scraper-psi.vercel.app/",
             "github": "https://github.com/aalexmrt/github-scraper"
           }
         },
