@@ -1,7 +1,7 @@
 {
   "name": "Alex Martinez",
-  "title": "Full-Stack Engineer • AI Systems • Data Platforms",
-  "tagline": "I design and build scalable systems that turn complex data into meaningful tools for developers and organizations.",
+  "title": "Full-Stack Engineer • Data Platforms • Cloud & AI Systems",
+  "tagline": "I build scalable data platforms and AI systems that turn complex information into meaningful tools.",
   "social": {
     "github": "https://github.com/aalexmrt",
     "linkedin": "https://www.linkedin.com/in/alexmartinez598/",
@@ -9,8 +9,8 @@
   },
   "hero": {
     "name": "Alex Martinez",
-    "title": "Full-Stack Engineer • AI Systems • Data Platforms",
-    "tagline": "I design and build scalable systems that turn complex data into meaningful tools for developers and organizations.",
+    "title": "Full-Stack Engineer • Data Platforms • Cloud & AI Systems",
+    "tagline": "I build scalable data platforms and AI systems that turn complex information into meaningful tools.",
     "cta": {
       "primary": {
         "text": "View My Work",
@@ -26,9 +26,9 @@
   "about": {
     "title": "About Me",
     "bio": [
-      "I'm a full-stack engineer passionate about building systems that connect data, AI, and modern web technologies.",
-      "My work ranges from developer analytics platforms like OpenQ DRM and GoGitGuru to AI-powered applications such as Saya and Geist AI.",
-      "I enjoy designing clean backend architectures, intuitive frontends, and delivering reliable, production-ready solutions."
+      "I'm a full-stack engineer with over 4 years of experience designing and building scalable data platforms, cloud systems, and AI-driven tools.",
+      "My work focuses on transforming complex data into meaningful insights through well-structured architectures and efficient data pipelines.",
+      "I enjoy creating reliable systems that combine data engineering, backend design, and modern frontend development to deliver real impact for developers and organizations."
     ]
   },
 
@@ -37,13 +37,13 @@
     "items": [
       {
         "company": "OpenQ Labs",
-        "role": "Full Stack AI Engineer",
+        "role": "Full Stack Engineer",
         "period": "Nov 2024 – Present",
         "duration": "+1 year",
         "location": "Germany (Remote)",
         "description": [
           "Built and scaled developer analytics platforms that process large-scale GitHub data to generate actionable insights, improving visibility into technology adoption and enabling data-driven decisions.",
-          "Redesigned event-driven data pipelines and Kafka topics to handle concurrent ingestion of high-volume repositories, reducing latency and improving throughput across distributed services.",
+          "Redesigned event-driven data pipelines and Kafka topics to handle concurrent ingestion, reducing latency and improving throughput across distributed services.",
           "Implemented synchronization and evaluation systems in Go and TypeScript to ensure consistent and reliable GitHub data across MongoDB and PostgreSQL databases.",
           "Developed AI systems for natural-language analytics, enhancing product capabilities in intelligent querying and real-time reasoning while maintaining privacy and performance.",
           "Automated multi-environment deployments with Helm and GitHub Actions, deploying services across GKE and AWS for scalable, reliable releases across production and staging environments."
@@ -52,8 +52,6 @@
           "TypeScript",
           "Go",
           "Next.js",
-          "tRPC",
-          "React Query",
           "Node.js",
           "Kafka",
           "PostgreSQL",
@@ -67,54 +65,49 @@
       {
         "company": "Stackless Data",
         "role": "Full Stack Engineer",
-        "period": "Oct 2023 – Oct 2024",
+        "period": "Oct 2023 – Nov 2024",
         "duration": "+1 year",
         "location": "San Francisco, CA (Remote)",
         "description": [
-          "Built core features for Stackless, an enterprise data platform that connects Fivetran, Snowflake, and GoodData to deliver automated analytics pipelines and AI-powered insights.",
-          "Developed the onboarding flow and backend integrations that simplified client setup and configuration, reducing manual work for new tenants.",
-          "Built React dashboards integrated with Strapi CMS and GoodData, providing real-time visualizations and self-serve analytics for enterprise customers.",
-          "Implemented modular backend services in FastAPI, connecting to Snowflake and Fivetran pipelines with secure AWS Cognito authentication.",
-          "Helped design the platform's multi-tenant architecture, with support for dbt model generation and WebSocket-based real-time updates.",
-          "Improved overall performance and responsiveness through chunked pagination, optimized API calls, and Dockerized local development environments."
+          "Built key features for an enterprise data platform integrating Fivetran, Snowflake, and BI tools to automate analytics pipelines and deliver AI-powered insights.",
+          "Developed onboarding workflows and backend integrations that streamlined client setup and reduced manual configuration for new tenants.",
+          "Implemented modular backend architecture with FastAPI to support multi-tenant data pipelines, dbt model generation, and real-time updates, improving scalability and performance across the platform."
         ],
         "technologies": [
           "FastAPI",
-          "React",
           "TypeScript",
-          "Node",
+          "React",
+          "Node.js",
           "Express",
-          "Strapi",
           "Docker",
           "Snowflake",
           "Fivetran",
-          "BigQuery",
-          "Prefect",
           "PostgreSQL",
-          "GoodData",
-          "AWS Cognito",
-          "dbt"
+          "dbt",
+          "BI tools"
         ]
       },
       {
-        "company": "Independent Consulting",
-        "role": "Full Stack Engineer (Freelance)",
+        "company": "Freelance",
+        "role": "Full Stack Engineer",
         "period": "May 2023 – Present",
         "duration": "+3 years",
         "location": "Remote",
         "description": [
-          "Worked with startups and open-source teams to design, develop, and deploy full-stack applications with a focus on clean architecture, scalability, and maintainability.",
-          "Handled everything from backend APIs and frontend interfaces to cloud deployments and Dockerized environments across AWS, GCP, and Vercel."
+          "Collaborated with startups and open-source teams on maintenance tasks, small feature builds, and integrations to improve reliability and user experience."
         ],
         "technologies": [
           "React",
           "Next.js",
           "TypeScript",
-          "Node",
+          "Node.js",
           "Fastify",
           "Docker",
           "PostgreSQL",
-          "MongoDB"
+          "MongoDB",
+          "AWS",
+          "GCP",
+          "Vercel"
         ]
       },
       {
@@ -124,12 +117,16 @@
         "duration": "+3 years",
         "location": "Barcelona, Spain",
         "description": [
-          "Developed and maintained internal automation tools and build pipelines for humanoid and service robots, improving reliability and delivery speed across validation workflows.",
-          "Enhanced robot validation tools in Python, increasing testing accuracy and reducing failure rates.",
-          "Optimized ISO image generation pipelines with Docker and Bash, cutting build time by 20%.",
-          "Migrated legacy systems to Python 3 and implemented GitHub CI/CD and Jenkins pipelines for consistent, automated deployments."
+          "Developed automation tools and build pipelines, improving reliability and streamlining system deployments through Python, Docker, and CI/CD workflows."
         ],
-        "technologies": ["Python", "Docker", "Jenkins", "GitHub CI/CD", "Bash"]
+        "technologies": [
+          "Python",
+          "Docker",
+          "Git",
+          "GitHub CI/CD",
+          "Jenkins",
+          "Bash"
+        ]
       }
     ]
   },
