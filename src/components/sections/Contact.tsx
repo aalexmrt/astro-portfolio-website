@@ -195,7 +195,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-20">
       <div className="w-full max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-zinc-900 dark:text-white">
@@ -210,7 +210,7 @@ const ContactForm = () => {
         <div className="grid md:grid-cols-5 gap-8">
           {/* Left Card - Contact Info (40% width) */}
           <div className="md:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-indigo-50/50 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-indigo-400/20 md:sticky md:top-8">
+            <div className="p-8 bg-gradient-to-br from-indigo-50/50 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-indigo-400/20 md:sticky md:top-[98px]">
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-bold mb-4 text-zinc-900 dark:text-white">
@@ -231,8 +231,12 @@ const ContactForm = () => {
                       <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-zinc-900 dark:text-white">Email</p>
-                      <p className="text-xs text-zinc-600 dark:text-zinc-400 truncate">{me.social.email}</p>
+                      <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                        Email
+                      </p>
+                      <p className="text-xs text-zinc-600 dark:text-zinc-400 truncate">
+                        {me.social.email}
+                      </p>
                     </div>
                   </a>
 
@@ -246,8 +250,12 @@ const ContactForm = () => {
                       <Linkedin className="w-5 h-5 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-zinc-900 dark:text-white">LinkedIn</p>
-                      <p className="text-xs text-zinc-600 dark:text-zinc-400">Connect with me</p>
+                      <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                        LinkedIn
+                      </p>
+                      <p className="text-xs text-zinc-600 dark:text-zinc-400">
+                        Connect with me
+                      </p>
                     </div>
                   </a>
                 </div>
@@ -256,7 +264,10 @@ const ContactForm = () => {
           </div>
 
           {/* Right Card - Contact Form (60% width) */}
-          <form onSubmit={handleSubmit} className="md:col-span-3 p-8 bg-white dark:bg-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-indigo-400/20 space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            className="md:col-span-3 p-8 bg-white dark:bg-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-indigo-400/20 space-y-6"
+          >
             <div>
               <label
                 htmlFor="name"
