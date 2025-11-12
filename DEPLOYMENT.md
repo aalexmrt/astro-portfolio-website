@@ -12,6 +12,7 @@
 ### Step 1: Push to GitHub
 
 Make sure your code is pushed to GitHub:
+
 ```bash
 git push -u origin main
 ```
@@ -40,12 +41,14 @@ Cloudflare will auto-detect Astro, but verify these settings:
 Add your environment variables in the build settings:
 
 **Required for Contact Form:**
+
 - `RESEND_API_KEY` - Your Resend API key for sending emails
 - `RESEND_FROM_EMAIL` - Your verified sender email (e.g., `noreply@yourdomain.com`)
 - `PUBLIC_TURNSTILE_SITE_KEY` - Your Cloudflare Turnstile site key (public)
 - `TURNSTILE_SECRET_KEY` - Your Cloudflare Turnstile secret key (private)
 
 **How to add:**
+
 1. Click **Environment variables** in build settings
 2. Click **Add variable** for each one
 3. Set the variable name and value
@@ -65,7 +68,7 @@ Add your environment variables in the build settings:
 
 1. In your Pages project, go to **Custom domains**
 2. Click **Set up a custom domain**
-3. Enter your domain (e.g., `alexmartinez.dev`)
+3. Enter your domain (e.g., `aalexmrt.pro`)
 4. Follow DNS instructions
 5. SSL will be automatically configured
 
@@ -99,6 +102,7 @@ npx wrangler pages deploy dist --project-name=astro-portfolio-website
 ## Auto-Deployments
 
 With GitHub integration:
+
 - ✅ **Production deployments:** Every push to `main` branch
 - ✅ **Preview deployments:** Every pull request gets a preview URL
 - ✅ **Automatic:** No manual steps needed
@@ -146,4 +150,3 @@ Node version: 18
 4. ✅ Deploy!
 5. ✅ Set up custom domain (optional)
 6. ✅ Share your portfolio! 🚀
-

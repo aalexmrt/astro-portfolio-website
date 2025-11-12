@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://alexmartinez.dev/sitemap.xml
+Sitemap: https://aalexmrt.pro/sitemap.xml
 
 # Disallow API routes from being crawled
 Disallow: /api/

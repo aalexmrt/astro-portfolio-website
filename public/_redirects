@@ -1,0 +1,10 @@
+# Cloudflare Pages Redirects
+# If you had an old site with different URLs, add redirects here
+# Format: /old-path /new-path 301
+
+# Example redirects (uncomment and modify as needed):
+# /old-page / 301
+# /blog/* /projects/* 301
+
+# If your old site was on a different domain, handle that in Cloudflare DNS/Page Rules
+
