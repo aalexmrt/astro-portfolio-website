@@ -22,6 +22,7 @@ export default defineConfig({
       changefreq: "monthly",
       priority: 0.7,
       lastmod: new Date(),
+      entryLimit: 45000, // Force single sitemap file instead of index
     }),
   ],
 });
