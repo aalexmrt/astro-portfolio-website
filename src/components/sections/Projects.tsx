@@ -1,11 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import {
-  ExternalLink,
-  Github,
-  Info,
-  Building2,
-  MoreVertical,
-} from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, Github, Info, Building2 } from "lucide-react";
 import ProjectModal from "./ProjectModal";
 
 interface KeyFeature {
