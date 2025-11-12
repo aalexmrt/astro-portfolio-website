@@ -606,7 +606,7 @@
           ],
           "image": null,
           "links": {
-            "live": "https://ethereum-report.vercel.app/",
+            "live": "https://www.opensauced.org/",
             "github": "https://github.com/OpenQDev/"
           }
         },
@@ -676,7 +676,7 @@
             "coverage": "Supports 150+ blockchain ecosystems and 13+ dependency file formats"
           },
           "links": {
-            "live": "https://ethereum-report.vercel.app/",
+            "live": "https://www.opensauced.org/",
             "github": "https://github.com/OpenQDev/"
           },
           "images": [

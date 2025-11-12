@@ -153,7 +153,7 @@ const ProjectCard = ({
               Go-based backend for large-scale GitHub analysis in the blockchain
               space. Powers the{" "}
               <a
-                href="https://ethereum-report.vercel.app/"
+                href="https://www.opensauced.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
