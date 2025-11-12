@@ -2,6 +2,39 @@
   "name": "Alex Martinez",
   "title": "Full-Stack Engineer • Data Platforms • Cloud & AI Systems",
   "tagline": "I build scalable data platforms and AI systems that turn complex information into meaningful tools.",
+  "seo": {
+    "siteUrl": "https://alexmartinez.dev",
+    "defaultTitle": "Alex Martinez - Full-Stack Engineer & AI Specialist",
+    "defaultDescription": "Full-stack engineer specializing in scalable data platforms, AI systems, and cloud-native solutions. Building developer analytics platforms, AI-powered tools, and enterprise data systems.",
+    "keywords": [
+      "full-stack engineer",
+      "data platforms",
+      "AI systems",
+      "cloud engineering",
+      "TypeScript",
+      "Go",
+      "Kafka",
+      "PostgreSQL",
+      "Kubernetes",
+      "microservices",
+      "developer analytics",
+      "GitHub analytics",
+      "OpenQ",
+      "Saya",
+      "Geist AI"
+    ],
+    "author": "Alex Martinez",
+    "image": "/images/profile.webp",
+    "imageAlt": "Alex Martinez - Full-Stack Engineer",
+    "twitter": {
+      "handle": "@aalexmrt",
+      "card": "summary_large_image"
+    },
+    "og": {
+      "type": "website",
+      "locale": "en_US"
+    }
+  },
   "social": {
     "github": "https://github.com/aalexmrt",
     "linkedin": "https://www.linkedin.com/in/alexmartinez598/",
