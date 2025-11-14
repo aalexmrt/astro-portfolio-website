@@ -27,7 +27,13 @@ const fullTitle = title === seo.defaultTitle ? title : `${title} | ${meData.name
 const fullImageUrl = image.startsWith('http') 
   ? image 
   : `${seo.siteUrl}${image.startsWith('/') ? image : `/${image}`}`;
-const canonicalUrl = canonical || (typeof Astro.url !== 'undefined' ? Astro.url.href : seo.siteUrl);
+
+// Ensure canonical URL always uses non-www version
+let canonicalUrl = canonical || (typeof Astro.url !== 'undefined' ? Astro.url.href : seo.siteUrl);
+if (canonicalUrl.includes('www.')) {
+  canonicalUrl = canonicalUrl.replace('www.', '');
+}
+
 const keywords = seo.keywords.join(', ');
 ---
 
