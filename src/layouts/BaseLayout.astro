@@ -28,11 +28,10 @@ const fullImageUrl = image.startsWith('http')
   ? image 
   : `${seo.siteUrl}${image.startsWith('/') ? image : `/${image}`}`;
 
-// Ensure canonical URL always uses non-www version
-let canonicalUrl = canonical || (typeof Astro.url !== 'undefined' ? Astro.url.href : seo.siteUrl);
-if (canonicalUrl.includes('www.')) {
-  canonicalUrl = canonicalUrl.replace('www.', '');
-}
+// Always use siteUrl as base for canonical (ensures non-www)
+// This prevents Google from seeing www version as canonical
+const pathname = typeof Astro.url !== 'undefined' ? Astro.url.pathname : '/';
+const canonicalUrl = canonical || `${seo.siteUrl}${pathname === '/' ? '' : pathname}`;
 
 const keywords = seo.keywords.join(', ');
 ---
