@@ -1,27 +1,28 @@
 {
   "name": "Alex Martinez",
-  "title": "Full-Stack Engineer • Data Platforms • Cloud & AI Systems",
-  "tagline": "I build scalable data platforms and AI systems that turn complex information into meaningful tools.",
+  "title": "Full-Stack Engineer • Data Platforms • AI-Powered Analytics",
+  "tagline": "I build data platforms that process millions of GitHub events and AI systems that turn natural language into actionable insights.",
   "seo": {
     "siteUrl": "https://aalexmrt.pro",
     "defaultTitle": "Alex Martinez - Full-Stack Engineer & AI Specialist",
-    "defaultDescription": "Full-stack engineer specializing in scalable data platforms, AI systems, and cloud-native solutions. Building developer analytics platforms, AI-powered tools, and enterprise data systems.",
+    "defaultDescription": "Full-stack engineer building data platforms that process millions of GitHub events and AI systems that turn natural language into SQL. Specializing in Kafka pipelines, Kubernetes deployments, and NL-to-SQL engines.",
     "keywords": [
       "full-stack engineer",
       "data platforms",
       "AI systems",
-      "cloud engineering",
+      "NL-to-SQL",
+      "natural language SQL",
       "TypeScript",
       "Go",
       "Kafka",
       "PostgreSQL",
       "Kubernetes",
-      "microservices",
+      "event-driven architecture",
       "developer analytics",
       "GitHub analytics",
-      "OpenQ",
-      "Saya",
-      "Geist AI"
+      "LangGraph",
+      "Gemini AI",
+      "microservices"
     ],
     "author": "Alex Martinez",
     "image": "/images/profile.webp",
@@ -42,8 +43,8 @@
   },
   "hero": {
     "name": "Alex Martinez",
-    "title": "Full-Stack Engineer • Data Platforms • Cloud & AI Systems",
-    "tagline": "I build scalable data platforms and AI systems that turn complex information into meaningful tools.",
+    "title": "Full-Stack Engineer • Data Platforms • AI-Powered Analytics",
+    "tagline": "I build data platforms that process millions of GitHub events and AI systems that turn natural language into actionable insights.",
     "cta": {
       "primary": {
         "text": "View My Work",
@@ -59,10 +60,10 @@
   "about": {
     "title": "About Me",
     "bio": [
-      "I'm a full-stack engineer with over 4 years of experience designing and building scalable data platforms, cloud systems, and AI-driven tools.",
-      "I like starting my day with coffee and a bit of fresh air, small habits that keep me grounded while trying to keep up with AI’s pace, or at least pretending to.",
-      "My work focuses on transforming complex data into meaningful insights through clean architectures and efficient backend workflows.",
-      "I enjoy creating reliable systems that combine strong backend foundations with thoughtful interfaces to deliver real impact for developers and organizations."
+      "I'm a full-stack engineer with 4+ years of experience building data platforms that process millions of events daily and AI systems that make complex data accessible through natural language.",
+      "Currently at OpenQ Labs, I work on developer analytics—designing Kafka pipelines, building NL-to-SQL engines, and deploying microservices on Kubernetes. Before that, I built enterprise data platforms integrating Snowflake and Fivetran, and automation systems at a robotics company.",
+      "I care about systems that actually work at scale: event-driven architectures, proper observability, and code that the next person can understand. I'm particularly drawn to the intersection of data engineering and AI—building tools that help people ask questions of their data without needing to write SQL.",
+      "When I'm not coding, I start my day with coffee and fresh air—small rituals that keep me grounded while the AI landscape changes faster than my npm dependencies."
     ]
   },
 
@@ -76,11 +77,11 @@
         "duration": "+1 year",
         "location": "Germany (Remote)",
         "description": [
-          "Built and scaled developer analytics platforms that process large-scale GitHub data to generate actionable insights, improving visibility into technology adoption and enabling data-driven decisions.",
-          "Redesigned event-driven data pipelines and Kafka topics to handle concurrent ingestion, reducing latency and improving throughput across distributed services.",
-          "Implemented synchronization and evaluation systems in Go and TypeScript to ensure consistent and reliable GitHub data across MongoDB and PostgreSQL databases.",
-          "Developed AI systems for natural-language analytics, enhancing product capabilities in intelligent querying and real-time reasoning while maintaining privacy and performance.",
-          "Automated multi-environment deployments with Helm and GitHub Actions, deploying services across GKE and AWS for scalable, reliable releases across production and staging environments."
+          "Built developer analytics platforms processing 10M+ GitHub events across 50K+ repositories, powering insights for technology adoption tracking and developer discovery.",
+          "Redesigned Kafka pipelines with 25 concurrent consumers per topic, reducing ingestion latency by 40% and enabling real-time data synchronization across 12+ microservices.",
+          "Developed NL-to-SQL AI system using Gemini 2.5 Flash that translates natural language queries into optimized SQL, achieving sub-300ms query execution with zero database timeouts.",
+          "Built Go and TypeScript synchronization services ensuring data consistency across MongoDB and PostgreSQL, handling 100K+ daily sync operations with retry logic and saga patterns.",
+          "Automated multi-environment CI/CD with Helm and GitHub Actions, deploying to GKE Autopilot with automated rollbacks and health checks across dev/staging/prod."
         ],
         "technologies": [
           "TypeScript",
@@ -103,9 +104,9 @@
         "duration": "+1 year",
         "location": "San Francisco, CA (Remote)",
         "description": [
-          "Built key features for an enterprise data platform integrating Fivetran, Snowflake, and BI tools to automate analytics pipelines and deliver AI-powered insights.",
-          "Developed onboarding workflows and backend integrations that streamlined client setup and reduced manual configuration for new tenants.",
-          "Implemented modular backend architecture with FastAPI to support multi-tenant data pipelines, dbt model generation, and real-time updates, improving scalability and performance across the platform."
+          "Built enterprise data platform integrating Fivetran, Snowflake, and GoodData, enabling automated ETL pipelines that reduced client data onboarding time from weeks to days.",
+          "Developed LangGraph-based AI agent with ReAct reasoning for natural language data analysis, supporting real-time WebSocket streaming and persistent conversational memory.",
+          "Implemented multi-tenant FastAPI backend with dynamic dbt model generation, RBAC enforcement, and AWS Cognito authentication serving 20+ enterprise clients."
         ],
         "technologies": [
           "FastAPI",
@@ -125,10 +126,11 @@
         "company": "Freelance",
         "role": "Full Stack Engineer",
         "period": "May 2023 – Present",
-        "duration": "+3 years",
+        "duration": "+2 years",
         "location": "Remote",
         "description": [
-          "Collaborated with startups and open-source teams on maintenance tasks, small feature builds, and integrations to improve reliability and user experience."
+          "Delivered full-stack solutions for early-stage startups including API integrations, database optimizations, and cloud deployments on AWS/GCP.",
+          "Built and maintained React/Next.js frontends and Node.js backends, focusing on performance improvements and developer experience enhancements."
         ],
         "technologies": [
           "React",
@@ -148,10 +150,11 @@
         "company": "Pal Robotics",
         "role": "Software Engineer",
         "period": "Sept 2020 – May 2023",
-        "duration": "+3 years",
+        "duration": "~3 years",
         "location": "Barcelona, Spain",
         "description": [
-          "Developed automation tools and build pipelines, improving reliability and streamlining system deployments through Python, Docker, and CI/CD workflows."
+          "Built Python automation tools and CI/CD pipelines (Jenkins, GitHub Actions) that reduced deployment time by 60% and improved release reliability across the robotics platform.",
+          "Developed Docker-based build systems and internal tooling that standardized development environments for a team of 15+ engineers."
         ],
         "technologies": [
           "Python",
