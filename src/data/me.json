@@ -60,8 +60,8 @@
     "title": "About Me",
     "bio": [
       "I'm a full-stack engineer with 4+ years of experience building data platforms and backend systems. My work spans event-driven architectures, cloud deployments, and integrating AI capabilities into production applications.",
-      "Currently at OpenQ Labs, I work on developer analytics—designing Kafka pipelines, building synchronization services in Go and TypeScript, and deploying microservices on Kubernetes. Before that, I built enterprise data platforms integrating Snowflake and Fivetran, and automation systems at a robotics company.",
-      "I care about systems that actually work at scale: clean architectures, proper observability, and code that the next person can understand. When I'm not coding, I start my day with coffee and fresh air—small rituals that keep me grounded while the AI landscape changes faster than my npm dependencies."
+      "Currently at OpenQ Labs, I work on developer analytics (designing Kafka pipelines, building synchronization services in Go and TypeScript, and deploying microservices on Kubernetes). Before that, I built enterprise data platforms integrating Snowflake and Fivetran, and automation systems at a robotics company.",
+      "I care about systems that actually work at scale: clean architectures, proper observability, and code that the next person can understand. When I'm not coding, I start my day with coffee and fresh air, small rituals that keep me grounded while the AI landscape changes faster than my npm dependencies."
     ]
   },
 
@@ -71,7 +71,7 @@
       {
         "company": "OpenQ Labs",
         "role": "Full Stack Engineer",
-        "period": "Nov 2024 – Present",
+        "period": "Nov 2024 - Present",
         "duration": "+1 year",
         "location": "Germany (Remote)",
         "description": [
@@ -98,7 +98,7 @@
       {
         "company": "Stackless Data",
         "role": "Full Stack Engineer",
-        "period": "Oct 2023 – Nov 2024",
+        "period": "Oct 2023 - Nov 2024",
         "duration": "+1 year",
         "location": "San Francisco, CA (Remote)",
         "description": [
@@ -123,7 +123,7 @@
       {
         "company": "Freelance",
         "role": "Full Stack Engineer",
-        "period": "May 2023 – Present",
+        "period": "May 2023 - Present",
         "duration": "+2 years",
         "location": "Remote",
         "description": [
@@ -147,7 +147,7 @@
       {
         "company": "Pal Robotics",
         "role": "Software Engineer",
-        "period": "Sept 2020 – May 2023",
+        "period": "Sept 2020 - May 2023",
         "duration": "~3 years",
         "location": "Barcelona, Spain",
         "description": [
@@ -200,7 +200,7 @@
       "submit": {
         "text": "Send Message",
         "sending": "Sending...",
-        "success": "Thanks for reaching out — I’ll get back to you soon.",
+        "success": "Thanks for reaching out, I'll get back to you soon.",
         "error": "Something went wrong. Please try again or email me directly."
       }
     }
@@ -369,7 +369,7 @@
             }
           ],
           "technicalHighlights": [
-            "Reduced local inference latency from 20s to 1–2s using Metal-optimized llama.cpp builds",
+            "Reduced local inference latency from 20s to 1-2s using Metal-optimized llama.cpp builds",
             "Achieved sub-5s first-token latency and >10 tokens/sec throughput",
             "Implemented on-device semantic memory for context recall",
             "Added LLM-based price negotiation flow using RevenueCat SDK",
@@ -396,7 +396,7 @@
           ],
           "metrics": {
             "performance": "Sub-5s first-token latency and >10 tokens/sec throughput",
-            "optimization": "Reduced local inference latency from 20s to 1–2s using GPU-accelerated builds",
+            "optimization": "Reduced local inference latency from 20s to 1-2s using GPU-accelerated builds",
             "rendering": "Maintained 60fps rendering via TokenBatcher with 16ms flush intervals"
           },
           "links": {
@@ -649,7 +649,7 @@
           "title": "GoGitGuru",
           "subtitle": "Scalable GitHub Intelligence Platform",
           "purpose": "GoGitGuru is the backend foundation behind OpenQ’s ecosystem. It was designed to collect and process large amounts of GitHub data to understand how developers and projects connect within the blockchain space. It builds a clear picture of developer activity, technical expertise, and project dependencies across multiple ecosystems.",
-          "overview": "The platform is composed of six Go-based microservices — Server API, PublicAPI, RepoSync, UserSync, UserDepSync, and Analytics — each focused on a specific part of the pipeline. The services communicate asynchronously through Kafka, allowing thousands of repositories to be processed concurrently. It parses dependencies in over 13 formats, detects blockchain technologies across more than 150 ecosystems, and stores all processed data in PostgreSQL with read replicas for analytics and reporting.",
+          "overview": "The platform is composed of six Go-based microservices (Server API, PublicAPI, RepoSync, UserSync, UserDepSync, and Analytics), each focused on a specific part of the pipeline. The services communicate asynchronously through Kafka, allowing thousands of repositories to be processed concurrently. It parses dependencies in over 13 formats, detects blockchain technologies across more than 150 ecosystems, and stores all processed data in PostgreSQL with read replicas for analytics and reporting.",
           "keyFeatures": [
             {
               "category": "Architecture",
