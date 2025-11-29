@@ -121,30 +121,6 @@
         ]
       },
       {
-        "company": "Freelance",
-        "role": "Full Stack Engineer",
-        "period": "May 2023 - Present",
-        "duration": "+2 years",
-        "location": "Remote",
-        "description": [
-          "Delivered full-stack solutions for early-stage startups including API integrations, database optimizations, and cloud deployments on AWS/GCP.",
-          "Built and maintained React/Next.js frontends and Node.js backends, focusing on performance improvements and developer experience enhancements."
-        ],
-        "technologies": [
-          "React",
-          "Next.js",
-          "TypeScript",
-          "Node.js",
-          "Fastify",
-          "Docker",
-          "PostgreSQL",
-          "MongoDB",
-          "AWS",
-          "GCP",
-          "Vercel"
-        ]
-      },
-      {
         "company": "Pal Robotics",
         "role": "Software Engineer",
         "period": "Sept 2020 - May 2023",
