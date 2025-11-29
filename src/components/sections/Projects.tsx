@@ -94,6 +94,7 @@ const ProjectCard = ({
   };
 
   const [imageError, setImageError] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
   const hasImage = project.card.image && !imageError;
 
   return (
@@ -101,11 +102,23 @@ const ProjectCard = ({
       <div className="h-48 bg-gradient-to-br from-indigo-50 to-zinc-100 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden relative">
         {hasImage ? (
           <>
+            {/* Skeleton loader */}
+            {imageLoading && (
+              <div className="absolute inset-0 bg-zinc-200 dark:bg-zinc-700 animate-pulse">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-300/50 dark:via-zinc-600/50 to-transparent skeleton-shimmer" />
+              </div>
+            )}
             <img
               src={project.card.image}
               alt={project.card.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              onError={() => setImageError(true)}
+              className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${
+                imageLoading ? "opacity-0" : "opacity-100"
+              }`}
+              onLoad={() => setImageLoading(false)}
+              onError={() => {
+                setImageError(true);
+                setImageLoading(false);
+              }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </>

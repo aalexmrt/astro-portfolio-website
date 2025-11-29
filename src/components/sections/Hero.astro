@@ -76,6 +76,22 @@ import me from '../../data/me.json';
   .gradient-bg {
     background: linear-gradient(135deg, rgba(34, 197, 94, 0.05) 0%, rgba(79, 70, 229, 0.05) 50%, rgba(59, 130, 246, 0.05) 100%);
   }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-slide-in-up,
+    .animate-slide-in-left,
+    .animate-slide-in-right,
+    .accent-bar-left,
+    .accent-bar-right {
+      animation: none;
+      opacity: 1;
+    }
+
+    .animate-float {
+      animation: none;
+    }
+  }
 </style>
 
 <section id="hero" class="min-h-screen flex items-center justify-center pt-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden gradient-bg">

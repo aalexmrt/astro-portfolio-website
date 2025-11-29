@@ -1,4 +1,4 @@
-import { Moon, Sun, Menu, X, Home } from "lucide-react";
+import { Moon, Sun, Menu, X, Home, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Header = () => {
@@ -103,8 +103,18 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Right Side - Theme Toggle (Desktop) */}
-          <div className="hidden md:flex items-center">
+          {/* Right Side - Resume & Theme Toggle (Desktop) */}
+          <div className="hidden md:flex items-center gap-1">
+            <a
+              href="/resume-alex-martinez.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative p-2.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 group"
+              aria-label="Download Resume"
+            >
+              <span className="absolute inset-0 bg-indigo-600/10 dark:bg-indigo-400/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200"></span>
+              <FileText className="w-5 h-5 text-zinc-600 dark:text-zinc-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 relative z-10 transition-all duration-200 group-hover:scale-110" />
+            </a>
             <button
               onClick={toggleTheme}
               className="relative p-2.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 group"
@@ -165,7 +175,16 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
-            <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800">
+            <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 space-y-2">
+              <a
+                href="/resume-alex-martinez.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 w-full px-4 py-3 rounded-lg text-zinc-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 text-sm font-medium"
+              >
+                <FileText className="w-5 h-5" />
+                <span>Resume</span>
+              </a>
               <button
                 onClick={toggleTheme}
                 className="flex items-center space-x-3 w-full px-4 py-3 rounded-lg text-zinc-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 text-sm font-medium"
