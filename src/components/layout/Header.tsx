@@ -106,7 +106,7 @@ const Header = () => {
           {/* Right Side - Resume & Theme Toggle (Desktop) */}
           <div className="hidden md:flex items-center gap-1">
             <a
-              href="/resume-alex-martinez.pdf"
+              href="/Alex-Martinez-Full-Stack-Engineer-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="relative p-2.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 group"
@@ -177,7 +177,7 @@ const Header = () => {
             ))}
             <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 space-y-2">
               <a
-                href="/resume-alex-martinez.pdf"
+                href="/Alex-Martinez-Full-Stack-Engineer-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 w-full px-4 py-3 rounded-lg text-zinc-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 text-sm font-medium"
