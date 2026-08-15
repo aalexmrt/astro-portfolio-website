@@ -68,7 +68,7 @@ Add your environment variables in the build settings:
 
 1. In your Pages project, go to **Custom domains**
 2. Click **Set up a custom domain**
-3. Enter your domain (e.g., `aalexmrt.pro`)
+3. Enter your domain (e.g., `aalexmrt.com`)
 4. Follow DNS instructions
 5. SSL will be automatically configured
 
